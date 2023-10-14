@@ -1,33 +1,21 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
 var crop_count = 0
 var lvl_crops_available = 10
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+const MAX_FLY_SPEED = 600
 
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("flap"):
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
+	
+	
+	look_at(get_global_mouse_position())
+	rotate(PI)
+	$Sprite2D.flip_v = transform.x.x < 0
+	var mouse_distance_multiplier = min(get_global_mouse_position().distance_to(position) / 50, 1)
+	velocity = -transform.x * MAX_FLY_SPEED * mouse_distance_multiplier
 	move_and_slide()
 
 func set_crop_count(x : int):

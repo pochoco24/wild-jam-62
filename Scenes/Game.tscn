@@ -1,27 +1,103 @@
-[gd_scene load_steps=6 format=3 uid="uid://cww75cc5k5abg"]
+[gd_scene load_steps=12 format=3 uid="uid://cww75cc5k5abg"]
 
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_fdiyn"]
+[ext_resource type="Script" path="res://Scenes/PlayerCamera.gd" id="1_g3og4"]
+[ext_resource type="Texture2D" uid="uid://dpc65o5v0s3ag" path="res://Images/bird_fly.png" id="2_g8ckn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1g373"]
+size = Vector2(48, 33)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7nhki"]
 radius = 34.9857
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljera"]
+atlas = ExtResource("2_g8ckn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Animation" id="Animation_dgv0m"]
+resource_name = "idle_flap"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Rect2(2, 10, 58, 50), Rect2(66, 0, 58, 48), Rect2(130, 2, 58, 50)]
+}
+
+[sub_resource type="Animation" id="Animation_u8ehf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 64, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4mll4"]
+_data = {
+"RESET": SubResource("Animation_u8ehf"),
+"idle_flap": SubResource("Animation_dgv0m")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne4lx"]
-size = Vector2(1000, 200)
+size = Vector2(1756, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7pfo"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="GUI" type="Control" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(568, 298)
+script = ExtResource("1_fdiyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_1g373")
+
+[node name="Crop Pickup Area" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Crop Pickup Area"]
+shape = SubResource("CircleShape2D_7nhki")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("AtlasTexture_ljera")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+autoplay = "idle_flap"
+libraries = {
+"": SubResource("AnimationLibrary_4mll4")
+}
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+position = Vector2(568, 298)
+script = ExtResource("1_g3og4")
+
+[node name="GUI" type="Control" parent="PlayerCamera"]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
 
-[node name="CropCount" type="RichTextLabel" parent="GUI"]
+[node name="CropCount" type="RichTextLabel" parent="PlayerCamera/GUI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -36,24 +112,11 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(568, 298)
-script = ExtResource("1_fdiyn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_1g373")
-
-[node name="Crop Pickup Area" type="Area2D" parent="Player"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Crop Pickup Area"]
-shape = SubResource("CircleShape2D_7nhki")
-
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(549, 637)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(378, 0)
 shape = SubResource("RectangleShape2D_ne4lx")
 
 [node name="Crops" type="Node2D" parent="."]
