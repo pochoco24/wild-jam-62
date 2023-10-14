@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://cww75cc5k5abg"]
+
+[ext_resource type="Script" path="res://Scenes/Player.gd" id="1_fdiyn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g373"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7nhki"]
+radius = 34.9857
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne4lx"]
+size = Vector2(1000, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7pfo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GUI" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="CropCount" type="RichTextLabel" parent="GUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 50
+text = "0/10"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(568, 298)
+script = ExtResource("1_fdiyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_1g373")
+
+[node name="Crop Pickup Area" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Crop Pickup Area"]
+shape = SubResource("CircleShape2D_7nhki")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(549, 637)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_ne4lx")
+
+[node name="Crops" type="Node2D" parent="."]
+
+[node name="Crop" type="StaticBody2D" parent="Crops"]
+position = Vector2(431, 532)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop"]
+shape = SubResource("RectangleShape2D_s7pfo")
+
+[node name="Crop2" type="StaticBody2D" parent="Crops"]
+position = Vector2(493, 532)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop2"]
+shape = SubResource("RectangleShape2D_s7pfo")
+
+[node name="Crop3" type="StaticBody2D" parent="Crops"]
+position = Vector2(587, 533)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop3"]
+shape = SubResource("RectangleShape2D_s7pfo")
+
+[node name="Crop4" type="StaticBody2D" parent="Crops"]
+position = Vector2(910, 530)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop4"]
+shape = SubResource("RectangleShape2D_s7pfo")
+
+[connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
