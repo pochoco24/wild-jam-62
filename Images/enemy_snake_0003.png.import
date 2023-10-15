@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt2rjvpaydhqs"
-path="res://.godot/imported/EnemyGun.png-defd958f5b94ceb5a33cecfee40fc7e0.ctex"
+uid="uid://b0kpa4iwqishv"
+path="res://.godot/imported/enemy_snake_0003.png-c89244e38a987562859d52c77bb852b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameJam/EnemyGun.png"
-dest_files=["res://.godot/imported/EnemyGun.png-defd958f5b94ceb5a33cecfee40fc7e0.ctex"]
+source_file="res://enemy_snake_0003.png"
+dest_files=["res://.godot/imported/enemy_snake_0003.png-c89244e38a987562859d52c77bb852b0.ctex"]
 
 [params]
 

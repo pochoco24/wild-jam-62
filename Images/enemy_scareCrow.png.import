@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fglhwj7vt31i"
-path="res://.godot/imported/enemy_forkFarmer.png-29f61f52e12707cf46d5fce2254313a7.ctex"
+uid="uid://d3isxload1v2w"
+path="res://.godot/imported/enemy_scareCrow.png-49d767a40e9074d4d28a4795a0c45229.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameJam/enemy_forkFarmer.png"
-dest_files=["res://.godot/imported/enemy_forkFarmer.png-29f61f52e12707cf46d5fce2254313a7.ctex"]
+source_file="res://enemy_scareCrow.png"
+dest_files=["res://.godot/imported/enemy_scareCrow.png-49d767a40e9074d4d28a4795a0c45229.ctex"]
 
 [params]
 
