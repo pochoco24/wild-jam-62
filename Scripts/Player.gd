@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var crop_count = 0
 @onready var lvl_crops_available = %Crops.get_child_count()
-var hearts = 3
+@onready var hearts = %GUI/Hearts.get_child_count()
 
 @export var fly_speed = 500
 var acceleration = fly_speed / 25.0
@@ -11,6 +11,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var flap_velocity = -300
 
 func _physics_process(delta):
+	
+	if Input.is_action_just_pressed("test"):
+		hurt()
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -33,7 +36,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.animation = "walking"
 		$AnimatedSprite2D.speed_scale = abs(velocity.x / fly_speed)
 		rotation = 0
-		
+	
 	
 	move_and_slide()
 
@@ -42,13 +45,13 @@ func set_crop_count(x : int):
 	%GUI/CropCount.text = str(crop_count) + "/" + str(lvl_crops_available)
 
 func hurt():
-	hearts -= 1
+	if hearts > 0:
+		hearts -= 1
+	
+	%GUI/Hearts.get_child(hearts).play("break")
 	
 	if hearts == 0:
 		print("You lose")
-	
-	for i in %GUI/Hearts.get_child_count():
-		%GUI/Hearts.get_child(i).visible = i + 1 <= hearts
 
 func _on_crop_pickup_area_body_entered(body):
 	set_crop_count(crop_count + 1)
