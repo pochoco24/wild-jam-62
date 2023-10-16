@@ -1,57 +1,89 @@
-[gd_scene load_steps=13 format=3 uid="uid://cww75cc5k5abg"]
+[gd_scene load_steps=18 format=3 uid="uid://cww75cc5k5abg"]
 
-[ext_resource type="Texture2D" uid="uid://dpc65o5v0s3ag" path="res://Images/bird_fly.png" id="2_g8ckn"]
+[ext_resource type="Texture2D" uid="uid://d2kksnrhsnvwx" path="res://Images/PlayerBird.png" id="2_2jfac"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_lywa6"]
 [ext_resource type="Texture2D" uid="uid://dy46t3lauo66a" path="res://icon.svg" id="4_0sy3d"]
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="4_07m37"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g373"]
-size = Vector2(48, 33)
+[sub_resource type="CircleShape2D" id="CircleShape2D_gqnrc"]
+radius = 28.1114
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7nhki"]
-radius = 34.9857
+radius = 42.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ljera"]
-atlas = ExtResource("2_g8ckn")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_au7xy"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(62, 0, 31, 32)
 
-[sub_resource type="Animation" id="Animation_u8ehf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture:region")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 0, 64, 64)]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_g430l"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(31, 0, 31, 32)
 
-[sub_resource type="Animation" id="Animation_dgv0m"]
-resource_name = "idle_flap"
-length = 0.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture:region")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Rect2(2, 10, 58, 50), Rect2(66, 0, 58, 48), Rect2(130, 2, 58, 50)]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_8phel"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(0, 0, 31, 32)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4mll4"]
-_data = {
-"RESET": SubResource("Animation_u8ehf"),
-"idle_flap": SubResource("Animation_dgv0m")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b40u"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(93, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp80a"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(0, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_255au"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(31, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpwdo"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(62, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouvoi"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(93, 32, 31, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0tpk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au7xy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g430l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8phel")
+}],
+"loop": false,
+"name": &"flap",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b40u")
+}],
+"loop": true,
+"name": &"gliding",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp80a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_255au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpwdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouvoi")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 20.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne4lx"]
 size = Vector2(1756, 200)
@@ -66,8 +98,7 @@ position = Vector2(568, 298)
 script = ExtResource("2_lywa6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(1, -0.5)
-shape = SubResource("RectangleShape2D_1g373")
+shape = SubResource("CircleShape2D_gqnrc")
 
 [node name="Crop Pickup Area" type="Area2D" parent="Player"]
 collision_layer = 0
@@ -76,14 +107,12 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Crop Pickup Area"]
 shape = SubResource("CircleShape2D_7nhki")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = SubResource("AtlasTexture_ljera")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-autoplay = "idle_flap"
-libraries = {
-"": SubResource("AnimationLibrary_4mll4")
-}
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(0, -27)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_s0tpk")
+animation = &"walking"
+autoplay = "gliding"
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 position = Vector2(568, 298)
@@ -97,6 +126,7 @@ offset_left = -640.0
 offset_top = -360.0
 offset_right = 640.0
 offset_bottom = 360.0
+metadata/_edit_lock_ = true
 
 [node name="CropCount" type="RichTextLabel" parent="PlayerCamera/GUI"]
 layout_mode = 1
@@ -182,3 +212,4 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_s7pfo")
 
 [connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
+[connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
