@@ -1,0 +1,219 @@
+[gd_scene load_steps=19 format=3 uid="uid://cww75cc5k5abg"]
+
+[ext_resource type="Texture2D" uid="uid://d2kksnrhsnvwx" path="res://Images/PlayerBird.png" id="2_2jfac"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_lywa6"]
+[ext_resource type="Texture2D" uid="uid://dy46t3lauo66a" path="res://icon.svg" id="4_0sy3d"]
+[ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="4_07m37"]
+[ext_resource type="PackedScene" uid="uid://bocb7sn2na3j7" path="res://Scenes/scarecrow.tscn" id="5_5touj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gqnrc"]
+radius = 28.1114
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7nhki"]
+radius = 42.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au7xy"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(62, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g430l"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(31, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8phel"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(0, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b40u"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(93, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp80a"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(0, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_255au"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(31, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpwdo"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(62, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouvoi"]
+atlas = ExtResource("2_2jfac")
+region = Rect2(93, 32, 31, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0tpk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au7xy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g430l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8phel")
+}],
+"loop": false,
+"name": &"flap",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b40u")
+}],
+"loop": true,
+"name": &"gliding",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp80a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_255au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpwdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouvoi")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne4lx"]
+size = Vector2(1756, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7pfo"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(568, 298)
+script = ExtResource("2_lywa6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_gqnrc")
+
+[node name="Crop Pickup Area" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Crop Pickup Area"]
+shape = SubResource("CircleShape2D_7nhki")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(0, -27)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_s0tpk")
+animation = &"walking"
+autoplay = "gliding"
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+position = Vector2(568, 298)
+script = ExtResource("4_07m37")
+
+[node name="GUI" type="Control" parent="PlayerCamera"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+metadata/_edit_lock_ = true
+
+[node name="CropCount" type="RichTextLabel" parent="PlayerCamera/GUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme_override_font_sizes/normal_font_size = 50
+text = "0/4"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Hearts" type="Control" parent="PlayerCamera/GUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.48, 0.48)
+
+[node name="Heart1" type="TextureRect" parent="PlayerCamera/GUI/Hearts"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("4_0sy3d")
+
+[node name="Heart2" type="TextureRect" parent="PlayerCamera/GUI/Hearts"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 256.0
+offset_bottom = 128.0
+texture = ExtResource("4_0sy3d")
+
+[node name="Heart3" type="TextureRect" parent="PlayerCamera/GUI/Hearts"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 384.0
+offset_bottom = 128.0
+texture = ExtResource("4_0sy3d")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(549, 637)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(378, 0)
+shape = SubResource("RectangleShape2D_ne4lx")
+
+[node name="Crops" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Crop" type="StaticBody2D" parent="Crops"]
+position = Vector2(431, 532)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop"]
+shape = SubResource("RectangleShape2D_s7pfo")
+
+[node name="Crop2" type="StaticBody2D" parent="Crops"]
+position = Vector2(493, 532)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop2"]
+shape = SubResource("RectangleShape2D_s7pfo")
+
+[node name="Crop3" type="StaticBody2D" parent="Crops"]
+position = Vector2(587, 533)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop3"]
+shape = SubResource("RectangleShape2D_s7pfo")
+
+[node name="Crop4" type="StaticBody2D" parent="Crops"]
+position = Vector2(910, 530)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop4"]
+shape = SubResource("RectangleShape2D_s7pfo")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_5touj")]
+position = Vector2(353, 535)
+
+[connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
+[connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
