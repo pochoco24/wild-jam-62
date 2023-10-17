@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed = 30
 var walk_speed = 60
 var player_range = false
-var player = null
+@onready var player = %Player
 var gravity = 2000
 var start_pos
 
@@ -23,9 +23,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
-	player = body
-	player_range = true
+	if body == player:
+		player_range = true
 
 func _on_area_2d_body_exited(body):
-	player = null
-	player_range = false
+	if body == player:
+		player_range = false
