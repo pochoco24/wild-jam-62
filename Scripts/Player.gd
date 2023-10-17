@@ -54,8 +54,9 @@ func hurt():
 		print("You lose")
 
 func _on_crop_pickup_area_body_entered(body):
-	set_crop_count(crop_count + 1)
-	body.queue_free()
+	
+	if body.collect():
+		set_crop_count(crop_count + 1)
 
 
 func _on_animated_sprite_2d_animation_finished():
