@@ -1,11 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cww75cc5k5abg"]
 [gd_scene load_steps=37 format=3 uid="uid://cww75cc5k5abg"]
 
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_2jfac"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_lywa6"]
 [ext_resource type="Texture2D" uid="uid://b1pyc7ykew58c" path="res://Images/background_night.png" id="4_7hqoo"]
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="4_07m37"]
-[ext_resource type="PackedScene" uid="uid://c8n3elbt7qb6n" path="res://Scenes/scarecrow.tscn" id="5_wsucl"]
 [ext_resource type="Texture2D" uid="uid://b7t6rpvayrgi8" path="res://Images/Heart_Health.png" id="4_gcvt2"]
 [ext_resource type="Texture2D" uid="uid://cmjqedfqau1e2" path="res://Images/background_moon.png" id="5_qux2q"]
 [ext_resource type="PackedScene" uid="uid://duc7d07eldcv2" path="res://Scenes/Crop.tscn" id="7_4ppeg"]
@@ -333,9 +331,6 @@ shape = SubResource("RectangleShape2D_ne4lx")
 unique_name_in_owner = true
 
 [node name="Crop" parent="Crops" instance=ExtResource("7_4ppeg")]
-
-[node name="scarecrow" parent="." instance=ExtResource("5_wsucl")]
-position = Vector2(345, 505)
 
 [connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
