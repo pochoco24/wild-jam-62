@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8f0nx5aqmxj2"
-path="res://.godot/imported/enemy_snake_0003.png-8b998c0e21bfa52538443911c6163a65.ctex"
+uid="uid://d0b28ekbgfq8b"
+path="res://.godot/imported/crop_corn.png-a64ffb9a0869f34ded3c6a99e4a03e46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/enemy_snake_0003.png"
-dest_files=["res://.godot/imported/enemy_snake_0003.png-8b998c0e21bfa52538443911c6163a65.ctex"]
+source_file="res://Images/crop_corn.png"
+dest_files=["res://.godot/imported/crop_corn.png-a64ffb9a0869f34ded3c6a99e4a03e46.ctex"]
 
 [params]
 

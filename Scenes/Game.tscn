@@ -1,10 +1,14 @@
 [gd_scene load_steps=19 format=3 uid="uid://cww75cc5k5abg"]
+[gd_scene load_steps=37 format=3 uid="uid://cww75cc5k5abg"]
 
-[ext_resource type="Texture2D" uid="uid://d2kksnrhsnvwx" path="res://Images/PlayerBird.png" id="2_2jfac"]
+[ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_2jfac"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_lywa6"]
-[ext_resource type="Texture2D" uid="uid://dy46t3lauo66a" path="res://icon.svg" id="4_0sy3d"]
+[ext_resource type="Texture2D" uid="uid://b1pyc7ykew58c" path="res://Images/background_night.png" id="4_7hqoo"]
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="4_07m37"]
 [ext_resource type="PackedScene" uid="uid://c8n3elbt7qb6n" path="res://Scenes/scarecrow.tscn" id="5_wsucl"]
+[ext_resource type="Texture2D" uid="uid://b7t6rpvayrgi8" path="res://Images/Heart_Health.png" id="4_gcvt2"]
+[ext_resource type="Texture2D" uid="uid://cmjqedfqau1e2" path="res://Images/background_moon.png" id="5_qux2q"]
+[ext_resource type="PackedScene" uid="uid://duc7d07eldcv2" path="res://Scenes/Crop.tscn" id="7_4ppeg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqnrc"]
 radius = 28.1114
@@ -86,10 +90,133 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg41l"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1agi"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjewb"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yp0s"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ch3d"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3u1p"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vw16"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mnqs"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3uhb"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdsnb"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1txpd"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpo68"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3pgi"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_texe6"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5awwb"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypheu"]
+atlas = ExtResource("4_gcvt2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwjp7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg41l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1agi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjewb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yp0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ch3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3u1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vw16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mnqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3uhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdsnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1txpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpo68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3pgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_texe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5awwb")
+}],
+"loop": false,
+"name": &"break",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypheu")
+}],
+"loop": true,
+"name": &"full",
+"speed": 12.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne4lx"]
 size = Vector2(1756, 200)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7pfo"]
 
 [node name="Game" type="Node2D"]
 
@@ -119,6 +246,28 @@ autoplay = "gliding"
 position = Vector2(568, 298)
 script = ExtResource("4_07m37")
 
+[node name="Background" type="Control" parent="PlayerCamera"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -568.0
+offset_top = -298.0
+offset_right = -568.0
+offset_bottom = -298.0
+metadata/_edit_group_ = true
+
+[node name="BackgroundNight" type="Sprite2D" parent="PlayerCamera/Background"]
+z_index = -1
+position = Vector2(-72, -62)
+scale = Vector2(4, 4)
+texture = ExtResource("4_7hqoo")
+centered = false
+
+[node name="BackgroundMoon" type="Sprite2D" parent="PlayerCamera/Background"]
+position = Vector2(773, 106)
+scale = Vector2(4, 4)
+texture = ExtResource("5_qux2q")
+
 [node name="GUI" type="Control" parent="PlayerCamera"]
 unique_name_in_owner = true
 layout_mode = 3
@@ -146,29 +295,32 @@ autowrap_mode = 0
 
 [node name="Hearts" type="Control" parent="PlayerCamera/GUI"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.48, 0.48)
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(4, 4)
 
-[node name="Heart1" type="TextureRect" parent="PlayerCamera/GUI/Hearts"]
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
-texture = ExtResource("4_0sy3d")
+[node name="Heart" type="AnimatedSprite2D" parent="PlayerCamera/GUI/Hearts"]
+position = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_kwjp7")
+animation = &"full"
+autoplay = "full"
+metadata/_edit_lock_ = true
 
-[node name="Heart2" type="TextureRect" parent="PlayerCamera/GUI/Hearts"]
-layout_mode = 0
-offset_left = 128.0
-offset_right = 256.0
-offset_bottom = 128.0
-texture = ExtResource("4_0sy3d")
+[node name="Heart2" type="AnimatedSprite2D" parent="PlayerCamera/GUI/Hearts"]
+position = Vector2(24, 8)
+sprite_frames = SubResource("SpriteFrames_kwjp7")
+animation = &"full"
+autoplay = "full"
+metadata/_edit_lock_ = true
 
-[node name="Heart3" type="TextureRect" parent="PlayerCamera/GUI/Hearts"]
-layout_mode = 0
-offset_left = 256.0
-offset_right = 384.0
-offset_bottom = 128.0
-texture = ExtResource("4_0sy3d")
+[node name="Heart3" type="AnimatedSprite2D" parent="PlayerCamera/GUI/Hearts"]
+position = Vector2(40, 8)
+sprite_frames = SubResource("SpriteFrames_kwjp7")
+animation = &"full"
+autoplay = "full"
+metadata/_edit_lock_ = true
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(549, 637)
@@ -180,37 +332,7 @@ shape = SubResource("RectangleShape2D_ne4lx")
 [node name="Crops" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Crop" type="StaticBody2D" parent="Crops"]
-position = Vector2(431, 532)
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop"]
-shape = SubResource("RectangleShape2D_s7pfo")
-
-[node name="Crop2" type="StaticBody2D" parent="Crops"]
-position = Vector2(493, 532)
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop2"]
-shape = SubResource("RectangleShape2D_s7pfo")
-
-[node name="Crop3" type="StaticBody2D" parent="Crops"]
-position = Vector2(587, 533)
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop3"]
-shape = SubResource("RectangleShape2D_s7pfo")
-
-[node name="Crop4" type="StaticBody2D" parent="Crops"]
-position = Vector2(910, 530)
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crops/Crop4"]
-shape = SubResource("RectangleShape2D_s7pfo")
+[node name="Crop" parent="Crops" instance=ExtResource("7_4ppeg")]
 
 [node name="scarecrow" parent="." instance=ExtResource("5_wsucl")]
 position = Vector2(345, 505)

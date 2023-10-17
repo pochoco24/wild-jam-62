@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1xbwgoi7ucb8"
-path="res://.godot/imported/bird_fly.png-78f7edb763f2a44b396bc66c2600b918.ctex"
+uid="uid://pcwggjhpmhul"
+path="res://.godot/imported/crop_cherry.png-6c202af7a9e3f0a5a70e049044336264.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/bird_fly.png"
-dest_files=["res://.godot/imported/bird_fly.png-78f7edb763f2a44b396bc66c2600b918.ctex"]
+source_file="res://Images/crop_cherry.png"
+dest_files=["res://.godot/imported/crop_cherry.png-6c202af7a9e3f0a5a70e049044336264.ctex"]
 
 [params]
 
