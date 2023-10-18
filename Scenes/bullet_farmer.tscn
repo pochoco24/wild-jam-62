@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk87oc5m1xme6"]
+[gd_scene load_steps=6 format=3 uid="uid://bk87oc5m1xme6"]
 
+[ext_resource type="Script" path="res://Scripts/bullet_farmer.gd" id="1_3c30j"]
 [ext_resource type="Texture2D" uid="uid://boi7ryi7floye" path="res://Images/EnemyGun.png" id="1_i4caf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qmqv"]
@@ -21,6 +22,7 @@ animations = [{
 size = Vector2(36, 12)
 
 [node name="bullet" type="Area2D"]
+script = ExtResource("1_3c30j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)

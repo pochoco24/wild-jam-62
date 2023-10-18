@@ -177,7 +177,8 @@ script = ExtResource("1_7smon")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_2x8qb")
-animation = &"reload"
+animation = &"walking"
+autoplay = "walking"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(30, 26)
