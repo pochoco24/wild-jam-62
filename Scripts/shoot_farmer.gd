@@ -36,13 +36,21 @@ func _physics_process(delta):
 # to player
 func walk_to_player():
 	is_walking = false
-	position.x += (player.position.x - position.x)/speed
-	$AnimatedSprite2D.play("walking")
+	var direction_to_player = player.position - position
+	position.x += direction_to_player.x / speed
+	
+	#aim gun
+	$GunPivotPoint.rotation = direction_to_player.angle()
+	
+	$SpriteFarmer.flip_h = direction_to_player.x < 0
+	$GunPivotPoint.scale.y = -3 if direction_to_player.x < 0 else 3
+	
+	$SpriteFarmer.play("walking")
 	
 # to start
 func walk_to_start():
 	position.x += (start_pos.x + 1 - position.x)/walk_speed
-	$AnimatedSprite2D.play("walking")
+	$SpriteFarmer.play("walking")
 	
 # left and right
 func walk_leftandright():
@@ -55,7 +63,7 @@ func walk_leftandright():
 		walk_right()
 	else:
 		walk_left()
-	$AnimatedSprite2D.play("walking")
+	$SpriteFarmer.play("walking")
 
 func walk_right():
 	position.x += 1
@@ -70,14 +78,14 @@ func shooting():
 		#shot start
 		can_fire = false
 		shoot_bullet()
-		$AnimatedSprite2D.play("walking")
-		$AnimatedSprite2D2.play("gun")
+		$SpriteFarmer.play("walking")
+		$GunPivotPoint/SpriteGun.play("gun")
 		#shot end
 		await get_tree().create_timer(2.0).timeout
 		#reload start
-		$AnimatedSprite2D2.play("no_gun")
+		$GunPivotPoint/SpriteGun.play("no_gun")
 		is_reloading = true
-		$AnimatedSprite2D.play("reload")
+		$SpriteFarmer.play("reload")
 		await get_tree().create_timer(1.0).timeout
 		is_reloading = false
 		can_fire = true
@@ -85,7 +93,7 @@ func shooting():
 
 # Bullet
 func shoot_bullet():
-	print("Bullet shot")
+	%Player.hurt()
 
 
 # body
