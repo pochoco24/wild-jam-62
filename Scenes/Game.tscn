@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cww75cc5k5abg"]
+[gd_scene load_steps=43 format=3 uid="uid://cww75cc5k5abg"]
 
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_2jfac"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_lywa6"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://b7t6rpvayrgi8" path="res://Images/Heart_Health.png" id="4_gcvt2"]
 [ext_resource type="Texture2D" uid="uid://cmjqedfqau1e2" path="res://Images/background_moon.png" id="5_qux2q"]
 [ext_resource type="Texture2D" uid="uid://c1370um21cfii" path="res://Images/background_sun.png" id="6_56r8a"]
+[ext_resource type="Texture2D" uid="uid://fywgnnvcwcyn" path="res://Images/background_day.png" id="6_xd66w"]
 [ext_resource type="PackedScene" uid="uid://duc7d07eldcv2" path="res://Scenes/Crop.tscn" id="7_4ppeg"]
 [ext_resource type="PackedScene" uid="uid://b0qnwokgbt1ft" path="res://Scenes/scarecrow.tscn" id="8_40vxb"]
+[ext_resource type="Texture2D" uid="uid://b4dy8b0f3radq" path="res://Images/background_tree.png" id="8_62yag"]
 [ext_resource type="Texture2D" uid="uid://lu8qckn7cug4" path="res://Images/background_floor2.png" id="8_t8cj2"]
 [ext_resource type="PackedScene" uid="uid://csqe6ncspknhp" path="res://Scenes/shoot_farmer.tscn" id="9_43ace"]
 
@@ -245,15 +247,15 @@ animation = &"walking"
 autoplay = "gliding"
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(568, 298)
 script = ExtResource("4_07m37")
 
 [node name="BackgroundFollow" type="Node2D" parent="PlayerCamera"]
-z_index = -1
+z_index = -100
 position = Vector2(-640, -360)
-metadata/_edit_group_ = true
 
-[node name="bg" type="Sprite2D" parent="PlayerCamera/BackgroundFollow"]
+[node name="bg_night" type="Sprite2D" parent="PlayerCamera/BackgroundFollow"]
 position = Vector2(638, 358)
 scale = Vector2(9.96875, 5.59375)
 texture = ExtResource("4_7hqoo")
@@ -262,6 +264,11 @@ texture = ExtResource("4_7hqoo")
 position = Vector2(130, 118)
 scale = Vector2(5.54687, 5.54687)
 texture = ExtResource("5_qux2q")
+
+[node name="bg_day" type="Sprite2D" parent="PlayerCamera/BackgroundFollow"]
+position = Vector2(638, 358)
+scale = Vector2(9.96875, 5.59375)
+texture = ExtResource("6_xd66w")
 
 [node name="sun" type="Sprite2D" parent="PlayerCamera/BackgroundFollow"]
 position = Vector2(130, 118)
@@ -327,10 +334,15 @@ unique_name_in_owner = true
 
 [node name="Crop" parent="Crops" instance=ExtResource("7_4ppeg")]
 position = Vector2(434, 575)
-prop_texture = null
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(549, 637)
+
+[node name="Trees" type="Sprite2D" parent="Ground"]
+z_index = -1
+position = Vector2(207, -129)
+scale = Vector2(5, 5)
+texture = ExtResource("8_62yag")
 
 [node name="Sprite2D7" type="Sprite2D" parent="Ground"]
 texture_repeat = 2
