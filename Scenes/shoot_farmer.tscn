@@ -3,6 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://boi7ryi7floye" path="res://Images/EnemyGun.png" id="1_4v8ta"]
 [ext_resource type="Script" path="res://Scripts/shoot_farmer.gd" id="1_7smon"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmtpf"]
+size = Vector2(45, 49)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c8oce"]
+radius = 387.466
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4bo2u"]
+radius = 533.034
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wh6p7"]
 atlas = ExtResource("1_4v8ta")
 region = Rect2(0, 28, 32, 28)
@@ -162,29 +171,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmtpf"]
-size = Vector2(45, 49)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_c8oce"]
-radius = 387.466
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4bo2u"]
-radius = 533.034
-
 [node name="ShootFarmer" type="CharacterBody2D"]
 script = ExtResource("1_7smon")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_2x8qb")
-animation = &"walking"
-autoplay = "walking"
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(30, 26)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_mytoc")
-animation = &"no_gun"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 12.5)
@@ -202,6 +190,21 @@ position = Vector2(-227, -183)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shoot"]
 position = Vector2(225, -102)
 shape = SubResource("CircleShape2D_4bo2u")
+
+[node name="SpriteFarmer" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2x8qb")
+animation = &"walking"
+autoplay = "walking"
+
+[node name="GunPivotPoint" type="Node2D" parent="."]
+position = Vector2(0, 14.075)
+scale = Vector2(3, 3)
+
+[node name="SpriteGun" type="AnimatedSprite2D" parent="GunPivotPoint"]
+position = Vector2(10, 3.975)
+sprite_frames = SubResource("SpriteFrames_mytoc")
+animation = &"gun"
 
 [connection signal="body_entered" from="walk" to="." method="_on_walk_body_entered"]
 [connection signal="body_exited" from="walk" to="." method="_on_walk_body_exited"]
