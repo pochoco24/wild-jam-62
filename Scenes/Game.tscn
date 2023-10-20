@@ -246,6 +246,9 @@ sprite_frames = SubResource("SpriteFrames_s0tpk")
 animation = &"walking"
 autoplay = "gliding"
 
+[node name="InvinsibilityTimer" type="Timer" parent="Player"]
+one_shot = true
+
 [node name="PlayerCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(568, 298)
