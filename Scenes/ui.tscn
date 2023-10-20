@@ -1,0 +1,155 @@
+[gd_scene load_steps=3 format=3 uid="uid://c25o2jmd32yfq"]
+
+[ext_resource type="FontFile" uid="uid://bsl5qvppa4cqg" path="res://PixelifySans-Medium.ttf" id="1_0pst2"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_aaoh5"]
+
+[node name="ui" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_aaoh5")
+
+[node name="pause" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ui" type="ColorRect" parent="pause"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45098)
+
+[node name="title" type="Label" parent="pause/ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -175.5
+offset_right = 175.5
+offset_bottom = 160.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+
+[node name="Panel" type="Panel" parent="pause/ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.5
+offset_top = -239.5
+offset_right = 214.5
+offset_bottom = 273.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause/ui/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 29.0
+offset_right = -35.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="restart" type="Button" parent="pause/ui/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 50
+text = "RESTART"
+
+[node name="continue" type="Button" parent="pause/ui/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 50
+text = "CONTINUE"
+
+[node name="menu" type="Button" parent="pause/ui/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 50
+text = "MENU"
+
+[node name="failed" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ui" type="ColorRect" parent="failed"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.45098)
+
+[node name="title" type="Label" parent="failed/ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_top = 104.0
+offset_right = 165.0
+offset_bottom = 264.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 100
+text = "FAILED"
+
+[node name="Panel" type="Panel" parent="failed/ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.0
+offset_top = -136.0
+offset_right = 215.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="failed/ui/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.5
+offset_top = 44.5
+offset_right = -33.5
+offset_bottom = -52.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="restart2" type="Button" parent="failed/ui/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 50
+text = "RESTART"
+
+[node name="menu2" type="Button" parent="failed/ui/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 50
+text = "MENU"
+
+[connection signal="pressed" from="pause/ui/Panel/VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="pause/ui/Panel/VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="pause/ui/Panel/VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="failed/ui/Panel/VBoxContainer/restart2" to="." method="_on_restart_2_pressed"]
+[connection signal="pressed" from="failed/ui/Panel/VBoxContainer/menu2" to="." method="_on_menu_2_pressed"]

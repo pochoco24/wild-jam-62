@@ -52,6 +52,7 @@ func hurt():
 	
 	if hearts == 0:
 		print("You lose")
+		%ui.failed()
 
 func _on_crop_pickup_area_body_entered(body):
 	
