@@ -29,8 +29,3 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body == player:
 		player_range = false
-
-
-func _on_hitbox_body_entered(body):
-	if body == player:
-		%Player.hurt()

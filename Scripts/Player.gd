@@ -37,8 +37,16 @@ func _physics_process(delta):
 	#Invinsibility Flicker Animation
 	$AnimatedSprite2D.visible = fmod($InvinsibilityTimer.time_left, 0.1) < 0.05
 	
-	print($InvinsibilityTimer.time_left)
 	move_and_slide()
+	
+	
+	#Detect collisions
+	for i in get_slide_collision_count():
+		var collider = get_slide_collision(i).get_collider()
+		if collider.is_in_group("HurtPlayer"):
+			hurt()
+			break
+
 
 func set_crop_count(x : int):
 	crop_count = x

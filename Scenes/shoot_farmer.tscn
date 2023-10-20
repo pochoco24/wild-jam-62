@@ -171,7 +171,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ShootFarmer" type="CharacterBody2D"]
+[node name="ShootFarmer" type="CharacterBody2D" groups=["HurtPlayer"]]
 script = ExtResource("1_7smon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

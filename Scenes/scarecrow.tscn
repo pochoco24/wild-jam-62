@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0qnwokgbt1ft"]
+[gd_scene load_steps=12 format=3 uid="uid://b0qnwokgbt1ft"]
 
 [ext_resource type="Texture2D" uid="uid://b0tgkcn4w7d7a" path="res://Images/enemy_scareCrow.png" id="1_mtuls"]
 [ext_resource type="Script" path="res://Scripts/scarecrow.gd" id="1_sahvi"]
@@ -59,10 +59,7 @@ size = Vector2(56, 62)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xnq7"]
 radius = 217.938
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dhlc1"]
-radius = 29.0172
-
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["HurtPlayer"]]
 script = ExtResource("1_sahvi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -79,12 +76,5 @@ shape = SubResource("RectangleShape2D_3opce")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_3xnq7")
 
-[node name="hitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, -2)
-shape = SubResource("CircleShape2D_dhlc1")
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

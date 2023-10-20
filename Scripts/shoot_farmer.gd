@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @onready var player = %Player
-var bullet = preload("res://Scenes/bullet_farmer.tscn")
+var bullet = preload("res://Scenes/bullet.tscn")
 
 var start_pos
 var speed = 50
@@ -93,7 +93,10 @@ func shooting():
 
 # Bullet
 func shoot_bullet():
-	%Player.hurt()
+	var bullet_instance = bullet.instantiate().duplicate()
+	bullet_instance.position = position
+	bullet_instance.rotation = $GunPivotPoint.rotation
+	$"..".add_child(bullet_instance)
 
 
 # body
