@@ -3,7 +3,7 @@ extends CanvasLayer
 var fail_screen = false
 
 func _unhandled_input(event):
-	if event.is_action_released("esc") and fail_screen == false:
+	if event.is_action_pressed("esc") and fail_screen == false:
 		get_tree().paused = true
 		$pause/ui.show()
 

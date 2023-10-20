@@ -54,7 +54,7 @@ func hurt():
 		
 		if hearts == 0:
 			print("You lose")
-      %ui.failed()
+			%ui.failed()
 		
 		$InvinsibilityTimer.start(1.0)
 		
