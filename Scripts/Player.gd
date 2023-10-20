@@ -45,6 +45,7 @@ func set_crop_count(x : int):
 	%GUI/CropCount.text = str(crop_count) + "/" + str(lvl_crops_available)
 
 func hurt():
+
 	if $InvinsibilityTimer.time_left == 0:
 		if hearts > 0:
 			hearts -= 1
@@ -53,6 +54,7 @@ func hurt():
 		
 		if hearts == 0:
 			print("You lose")
+      %ui.failed()
 		
 		$InvinsibilityTimer.start(1.0)
 		

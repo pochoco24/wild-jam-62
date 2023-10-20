@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cww75cc5k5abg"]
+[gd_scene load_steps=44 format=3 uid="uid://cww75cc5k5abg"]
 
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_2jfac"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_lywa6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b4dy8b0f3radq" path="res://Images/background_tree.png" id="8_62yag"]
 [ext_resource type="Texture2D" uid="uid://lu8qckn7cug4" path="res://Images/background_floor2.png" id="8_t8cj2"]
 [ext_resource type="PackedScene" uid="uid://csqe6ncspknhp" path="res://Scenes/shoot_farmer.tscn" id="9_43ace"]
+[ext_resource type="PackedScene" uid="uid://c25o2jmd32yfq" path="res://Scenes/ui.tscn" id="14_fbeln"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqnrc"]
 radius = 28.1114
@@ -364,6 +365,9 @@ position = Vector2(27, 547)
 
 [node name="ShootFarmer" parent="." instance=ExtResource("9_43ace")]
 position = Vector2(1632, 500)
+
+[node name="ui" parent="." instance=ExtResource("14_fbeln")]
+unique_name_in_owner = true
 
 [connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
