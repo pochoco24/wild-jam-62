@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://chatnyhayx1if"]
+[gd_scene load_steps=65 format=3 uid="uid://chatnyhayx1if"]
 
 [ext_resource type="Script" path="res://Scripts/menu_buttons.gd" id="1_syrmr"]
 [ext_resource type="Texture2D" uid="uid://b1pyc7ykew58c" path="res://Images/background_night.png" id="1_yia18"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://lu8qckn7cug4" path="res://Images/background_floor2.png" id="4_wieow"]
 [ext_resource type="Texture2D" uid="uid://boi7ryi7floye" path="res://Images/EnemyGun.png" id="6_7pcp2"]
 [ext_resource type="Texture2D" uid="uid://y6guow8c83j4" path="res://Images/menu_title-Sheet.png" id="7_vgseb"]
+[ext_resource type="Texture2D" uid="uid://okhbylngafia" path="res://Images/button_play.png" id="9_88q6v"]
+[ext_resource type="Texture2D" uid="uid://xc6m4ctmllag" path="res://Images/button_play_hover.png" id="10_2ru3l"]
+[ext_resource type="Texture2D" uid="uid://cd1m8jf4trfrr" path="res://Images/button_quit.png" id="10_kwjfj"]
+[ext_resource type="Texture2D" uid="uid://bx6s0k14ob7xw" path="res://Images/button_quit_hover.png" id="12_y5ppl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6fibb"]
 atlas = ExtResource("4_6htyf")
@@ -377,22 +381,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="FontFile" id="FontFile_t2rxb"]
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-cache/0/50/0/kerning_overrides/50/0 = Vector2(0, 0)
-cache/0/50/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/50/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
 [node name="menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -483,48 +471,44 @@ scale = Vector2(7.62963, 7.62963)
 sprite_frames = SubResource("SpriteFrames_ns71p")
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="BG"]
-position = Vector2(632, 140)
+position = Vector2(632, 127)
 scale = Vector2(2.75667, 2.75667)
 sprite_frames = SubResource("SpriteFrames_1deeo")
 autoplay = "default"
+frame = 2
+frame_progress = 0.732176
 
 [node name="node" type="CanvasLayer" parent="."]
 
-[node name="buttons" type="VBoxContainer" parent="node"]
+[node name="VBoxContainer" type="VBoxContainer" parent="node"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -243.0
-offset_top = 40.0
-offset_right = 243.0
-offset_bottom = 258.0
+offset_left = -230.0
+offset_top = 26.0
+offset_right = 221.0
+offset_bottom = 287.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
-alignment = 1
 script = ExtResource("1_syrmr")
 
-[node name="Play" type="Button" parent="node/buttons"]
+[node name="play" type="TextureButton" parent="node/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0.984314, 0, 1)
-theme_override_constants/outline_size = 0
-theme_override_constants/h_separation = 0
-theme_override_constants/icon_max_width = 0
-theme_override_fonts/font = SubResource("FontFile_t2rxb")
-theme_override_font_sizes/font_size = 50
-text = "PLAY"
+texture_normal = ExtResource("9_88q6v")
+texture_pressed = ExtResource("9_88q6v")
+texture_hover = ExtResource("10_2ru3l")
+stretch_mode = 0
 
-[node name="Quit" type="Button" parent="node/buttons"]
+[node name="quit" type="TextureButton" parent="node/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0.984314, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "QUIT"
+texture_normal = ExtResource("10_kwjfj")
+texture_pressed = ExtResource("10_kwjfj")
+texture_hover = ExtResource("12_y5ppl")
+stretch_mode = 0
 
-[connection signal="pressed" from="node/buttons/Play" to="node/buttons" method="_on_play_pressed"]
-[connection signal="pressed" from="node/buttons/Quit" to="node/buttons" method="_on_quit_pressed"]
+[connection signal="pressed" from="node/VBoxContainer/play" to="node/VBoxContainer" method="_on_play_pressed"]
+[connection signal="pressed" from="node/VBoxContainer/quit" to="node/VBoxContainer" method="_on_quit_pressed"]
