@@ -12,9 +12,6 @@ var flap_velocity = -300
 
 func _physics_process(delta):
 	
-	if Input.is_action_just_pressed("test"):
-		hurt()
-	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
@@ -37,7 +34,10 @@ func _physics_process(delta):
 		$AnimatedSprite2D.speed_scale = abs(velocity.x / fly_speed)
 		rotation = 0
 	
+	#Invinsibility Flicker Animation
+	$AnimatedSprite2D.visible = fmod($InvinsibilityTimer.time_left, 0.1) < 0.05
 	
+	print($InvinsibilityTimer.time_left)
 	move_and_slide()
 
 func set_crop_count(x : int):
@@ -45,14 +45,19 @@ func set_crop_count(x : int):
 	%GUI/CropCount.text = str(crop_count) + "/" + str(lvl_crops_available)
 
 func hurt():
-	if hearts > 0:
-		hearts -= 1
-	
-	%GUI/Hearts.get_child(hearts).play("break")
-	
-	if hearts == 0:
-		print("You lose")
-		%ui.failed()
+
+	if $InvinsibilityTimer.time_left == 0:
+		if hearts > 0:
+			hearts -= 1
+		
+		%GUI/Hearts.get_child(hearts).play("break")
+		
+		if hearts == 0:
+			print("You lose")
+      %ui.failed()
+		
+		$InvinsibilityTimer.start(1.0)
+		
 
 func _on_crop_pickup_area_body_entered(body):
 	
@@ -64,3 +69,4 @@ func _on_animated_sprite_2d_animation_finished():
 	match $AnimatedSprite2D.animation:
 		"flap":
 			$AnimatedSprite2D.play("gliding")
+
