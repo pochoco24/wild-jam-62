@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://csqe6ncspknhp"]
+[gd_scene load_steps=28 format=3 uid="uid://csqe6ncspknhp"]
 
 [ext_resource type="Texture2D" uid="uid://boi7ryi7floye" path="res://Images/EnemyGun.png" id="1_4v8ta"]
 [ext_resource type="Script" path="res://Scripts/shoot_farmer.gd" id="1_7smon"]
+[ext_resource type="AudioStream" uid="uid://iioa1xj3gi6t" path="res://Sounds/Beak_Bandit_Gunshot_A.wav" id="3_f7eu1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmtpf"]
 size = Vector2(45, 49)
@@ -205,6 +206,10 @@ scale = Vector2(3, 3)
 position = Vector2(10, 3.975)
 sprite_frames = SubResource("SpriteFrames_mytoc")
 animation = &"gun"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f7eu1")
+volume_db = -20.0
 
 [connection signal="body_entered" from="walk" to="." method="_on_walk_body_entered"]
 [connection signal="body_exited" from="walk" to="." method="_on_walk_body_exited"]

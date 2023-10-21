@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://jmyt8v8r7f15"]
+[gd_scene load_steps=47 format=3 uid="uid://jmyt8v8r7f15"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_gw1gy"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_ijflv"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b0qnwokgbt1ft" path="res://Scenes/scarecrow.tscn" id="12_rpp0q"]
 [ext_resource type="PackedScene" uid="uid://csqe6ncspknhp" path="res://Scenes/shoot_farmer.tscn" id="13_a6d5i"]
 [ext_resource type="PackedScene" uid="uid://c25o2jmd32yfq" path="res://Scenes/ui.tscn" id="14_q1o8k"]
+[ext_resource type="AudioStream" uid="uid://kg85ltc6f70g" path="res://Sounds/Collect_Corvis.wav" id="16_ccvbu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqnrc"]
 radius = 28.1114
@@ -430,7 +431,6 @@ flip_h = true
 unique_name_in_owner = true
 
 [node name="clouds" type="Node2D" parent="."]
-visible = false
 position = Vector2(1145, 236)
 scale = Vector2(8.49219, 8.49219)
 
@@ -582,6 +582,10 @@ position = Vector2(-509.998, -19.1941)
 scale = Vector2(0.288628, 0.288628)
 texture = ExtResource("8_0y3rx")
 
+[node name="ShootFarmer" parent="." instance=ExtResource("13_a6d5i")]
+position = Vector2(-2135, 538)
+scale = Vector2(1.345, 1.345)
+
 [node name="Enemy\'s" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
@@ -616,9 +620,10 @@ scale = Vector2(1.51, 1.51)
 position = Vector2(-6352, 540)
 scale = Vector2(1.51, 1.51)
 
-[node name="ShootFarmer" parent="Enemy\'s" instance=ExtResource("13_a6d5i")]
-position = Vector2(-2135, 538)
-scale = Vector2(1.345, 1.345)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ccvbu")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]

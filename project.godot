@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Wild-jam-62"
+config/name="Wild-jam-62-BEZIG"
 run/main_scene="res://Scenes/ui_menu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"

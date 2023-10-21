@@ -93,6 +93,7 @@ func shooting():
 
 # Bullet
 func shoot_bullet():
+	$AudioStreamPlayer2D.play()
 	var bullet_instance = bullet.instantiate().duplicate()
 	bullet_instance.position = position
 	bullet_instance.rotation = $GunPivotPoint.rotation

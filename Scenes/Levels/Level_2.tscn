@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://pcj7kjs0311v"]
+[gd_scene load_steps=47 format=3 uid="uid://pcj7kjs0311v"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_nfqvr"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_ew7mu"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ue404bbxr2b" path="res://Images/background_cloud.png" id="13_fx8gr"]
 [ext_resource type="PackedScene" uid="uid://b0qnwokgbt1ft" path="res://Scenes/scarecrow.tscn" id="14_yk3cq"]
 [ext_resource type="PackedScene" uid="uid://csqe6ncspknhp" path="res://Scenes/shoot_farmer.tscn" id="15_4qg01"]
+[ext_resource type="AudioStream" uid="uid://kg85ltc6f70g" path="res://Sounds/Collect_Corvis.wav" id="16_vd1hp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqnrc"]
 radius = 28.1114
@@ -582,6 +583,10 @@ position = Vector2(-509.998, -19.1941)
 scale = Vector2(0.288628, 0.288628)
 texture = ExtResource("13_fx8gr")
 
+[node name="ShootFarmer" parent="." instance=ExtResource("15_4qg01")]
+position = Vector2(-2135, 538)
+scale = Vector2(1.345, 1.345)
+
 [node name="Enemy\'s" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="Enemy\'s" instance=ExtResource("14_yk3cq")]
@@ -616,9 +621,10 @@ scale = Vector2(1.51, 1.51)
 position = Vector2(-6352, 540)
 scale = Vector2(1.51, 1.51)
 
-[node name="ShootFarmer" parent="Enemy\'s" instance=ExtResource("15_4qg01")]
-position = Vector2(-2135, 538)
-scale = Vector2(1.345, 1.345)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_vd1hp")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
