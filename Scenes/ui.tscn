@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c25o2jmd32yfq"]
+[gd_scene load_steps=4 format=3 uid="uid://c25o2jmd32yfq"]
 
 [ext_resource type="FontFile" uid="uid://bsl5qvppa4cqg" path="res://PixelifySans-Medium.ttf" id="1_0pst2"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_aaoh5"]
+[ext_resource type="AudioStream" uid="uid://brp6g8qsl8p4k" path="res://Sounds/Chill_Corvis.wav" id="3_qiten"]
 
 [node name="ui" type="CanvasLayer"]
 process_mode = 3
@@ -220,6 +221,10 @@ size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_0pst2")
 theme_override_font_sizes/font_size = 50
 text = "MENU"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qiten")
+volume_db = -25.0
 
 [connection signal="pressed" from="pause/ui/Panel/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="pause/ui/Panel/VBoxContainer/continue" to="." method="_on_continue_pressed"]

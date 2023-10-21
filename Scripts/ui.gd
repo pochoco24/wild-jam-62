@@ -8,6 +8,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("esc") and fail_screen == false:
 		get_tree().paused = true
 		$pause/ui.show()
+		$music.play()
 
 
 func _on_restart_pressed():
@@ -16,9 +17,9 @@ func _on_restart_pressed():
 	get_tree().reload_current_scene()
 
 func _on_continue_pressed():
-	print("pressed")
 	get_tree().paused = false
 	$pause/ui.hide()
+	$music.stop()
 
 func _on_menu_pressed():
 	get_tree().paused = false
@@ -29,6 +30,7 @@ func failed():
 	fail_screen = true
 	get_tree().paused = true
 	$failed/ui.show()
+	$music.play()
 
 
 func _on_restart_2_pressed():
@@ -46,6 +48,7 @@ func _on_menu_2_pressed():
 func next_lvl():
 	$next_lvl/ui.show()
 	get_tree().paused = true
+	$music.play()
 
 func _on_next_lvl_pressed():
 	get_tree().paused = false
