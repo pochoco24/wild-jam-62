@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0qnwokgbt1ft"]
+[gd_scene load_steps=13 format=3 uid="uid://b0qnwokgbt1ft"]
 
 [ext_resource type="Texture2D" uid="uid://b0tgkcn4w7d7a" path="res://Images/enemy_scareCrow.png" id="1_mtuls"]
 [ext_resource type="Script" path="res://Scripts/scarecrow.gd" id="1_sahvi"]
+[ext_resource type="AudioStream" uid="uid://2s6ddhrf01cm" path="res://Sounds/Beak_Bandit_Scarecrow_Quick_Move.wav" id="3_6nfim"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h0bsl"]
 atlas = ExtResource("1_mtuls")
@@ -75,6 +76,10 @@ shape = SubResource("RectangleShape2D_3opce")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_3xnq7")
+
+[node name="sound_walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6nfim")
+volume_db = -20.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

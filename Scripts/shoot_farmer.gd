@@ -79,6 +79,7 @@ func shooting():
 		can_fire = false
 		$SpriteFarmer.play("walking")
 		$GunPivotPoint/SpriteGun.play("gun")
+		$sound_grunt.play()
 		shoot_bullet()
 		#shot end
 		await get_tree().create_timer(2.0).timeout
@@ -93,7 +94,7 @@ func shooting():
 
 # Bullet
 func shoot_bullet():
-	$AudioStreamPlayer2D.play()
+	$sound_shoot.play()
 	var bullet_instance = bullet.instantiate().duplicate()
 	bullet_instance.position = position
 	bullet_instance.rotation = $GunPivotPoint.rotation
@@ -113,6 +114,7 @@ func _on_walk_body_exited(body):
 func _on_shoot_body_entered(body):
 	if body == player:
 		player_shootrange = true
+		$sound_mumble.play()
 
 func _on_shoot_body_exited(body):
 	if body == player:

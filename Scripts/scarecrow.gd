@@ -12,6 +12,8 @@ func _ready():
 
 func _physics_process(delta):
 	if player_range:
+		if not $sound_walking.is_playing(): 
+			$sound_walking.play()
 		$AnimatedSprite2D.play("walking")
 		position += (player.position - position)/speed
 	else:
