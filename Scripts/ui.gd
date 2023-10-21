@@ -55,3 +55,13 @@ func _on_next_lvl_pressed():
 	var current_scene = get_tree().current_scene.scene_file_path
 	var next_level = current_scene.to_int() + 1
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level_" + str(next_level) + ".tscn")
+	
+func timeover_ui():
+	$timeover/ui.show()
+	get_tree().paused = true
+	$music.play()
+	
+func description():
+	$description.show()
+	await get_tree().create_timer(5.0).timeout
+	$description.hide()
