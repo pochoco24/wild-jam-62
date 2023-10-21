@@ -10,6 +10,9 @@ var acceleration = fly_speed / 25.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var flap_velocity = -300
 
+func _ready():
+	%ui.description()
+
 func _physics_process(delta):
 	
 	if not is_on_floor():

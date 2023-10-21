@@ -1,8 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://c25o2jmd32yfq"]
+[gd_scene load_steps=10 format=3 uid="uid://c25o2jmd32yfq"]
 
 [ext_resource type="FontFile" uid="uid://bsl5qvppa4cqg" path="res://PixelifySans-Medium.ttf" id="1_0pst2"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_aaoh5"]
 [ext_resource type="AudioStream" uid="uid://brp6g8qsl8p4k" path="res://Sounds/Chill_Corvis.wav" id="3_qiten"]
+[ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="3_s8ny8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7xm4"]
+atlas = ExtResource("3_s8ny8")
+region = Rect2(0, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uwhp"]
+atlas = ExtResource("3_s8ny8")
+region = Rect2(31, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni6vf"]
+atlas = ExtResource("3_s8ny8")
+region = Rect2(62, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfpi5"]
+atlas = ExtResource("3_s8ny8")
+region = Rect2(93, 0, 31, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jr3d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7xm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uwhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni6vf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfpi5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ui" type="CanvasLayer"]
 process_mode = 3
@@ -222,6 +259,128 @@ theme_override_fonts/font = ExtResource("1_0pst2")
 theme_override_font_sizes/font_size = 50
 text = "MENU"
 
+[node name="timeover" type="CanvasLayer" parent="."]
+
+[node name="ui" type="ColorRect" parent="timeover"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.45098)
+
+[node name="title" type="Label" parent="timeover/ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_top = 104.0
+offset_right = 165.0
+offset_bottom = 264.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 100
+text = "TIME OVER"
+
+[node name="Panel" type="Panel" parent="timeover/ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.0
+offset_top = -136.0
+offset_right = 215.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="timeover/ui/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.5
+offset_top = 44.5
+offset_right = -33.5
+offset_bottom = -52.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="restart2" type="Button" parent="timeover/ui/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 50
+text = "RESTART"
+
+[node name="menu2" type="Button" parent="timeover/ui/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 50
+text = "MENU"
+
+[node name="description" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ui" type="ColorRect" parent="description"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 88.0
+offset_right = -829.0
+offset_bottom = -554.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0.145098, 0.254902, 0.917647)
+
+[node name="title" type="Label" parent="description/ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.5
+offset_right = 344.5
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 60
+text = "Beak Bandit"
+
+[node name="ui2" type="ColorRect" parent="description"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 166.0
+offset_right = -829.0
+offset_bottom = -393.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.25098, 0.415686, 0.917647)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="description/ui2"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 12.0
+offset_right = 429.0
+offset_bottom = 254.0
+theme_override_colors/default_color = Color(0.921569, 0.921569, 0.921569, 1)
+theme_override_fonts/normal_font = ExtResource("1_0pst2")
+theme_override_font_sizes/normal_font_size = 35
+text = "Your mission is to steal all of the crops before it's day time!"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="description"]
+position = Vector2(409, 102)
+scale = Vector2(3.73589, 3.73589)
+sprite_frames = SubResource("SpriteFrames_2jr3d")
+autoplay = "default"
+
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qiten")
 volume_db = -25.0
@@ -234,3 +393,5 @@ volume_db = -25.0
 [connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer/next_lvl" to="." method="_on_next_lvl_pressed"]
 [connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="timeover/ui/Panel/VBoxContainer/restart2" to="." method="_on_restart_2_pressed"]
+[connection signal="pressed" from="timeover/ui/Panel/VBoxContainer/menu2" to="." method="_on_menu_2_pressed"]

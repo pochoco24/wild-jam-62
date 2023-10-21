@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://jmyt8v8r7f15"]
+[gd_scene load_steps=51 format=3 uid="uid://jmyt8v8r7f15"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_gw1gy"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_ijflv"]
@@ -6,10 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://b1pyc7ykew58c" path="res://Images/background_night.png" id="4_wjlib"]
 [ext_resource type="Texture2D" uid="uid://cmjqedfqau1e2" path="res://Images/background_moon.png" id="5_du36f"]
 [ext_resource type="Texture2D" uid="uid://fywgnnvcwcyn" path="res://Images/background_day.png" id="6_etf6g"]
+[ext_resource type="Script" path="res://Scripts/game_timer.gd" id="6_k6qkn"]
 [ext_resource type="Texture2D" uid="uid://c1370um21cfii" path="res://Images/background_sun.png" id="7_legiq"]
 [ext_resource type="Texture2D" uid="uid://b0ue404bbxr2b" path="res://Images/background_cloud.png" id="8_0y3rx"]
 [ext_resource type="Texture2D" uid="uid://b7t6rpvayrgi8" path="res://Images/Heart_Health.png" id="8_uk7yc"]
+[ext_resource type="FontFile" uid="uid://bsl5qvppa4cqg" path="res://PixelifySans-Medium.ttf" id="9_cnfnv"]
 [ext_resource type="PackedScene" uid="uid://duc7d07eldcv2" path="res://Scenes/Crop.tscn" id="9_wkpc6"]
+[ext_resource type="Texture2D" uid="uid://pcwggjhpmhul" path="res://Images/crop_cherry.png" id="10_cfape"]
 [ext_resource type="Texture2D" uid="uid://lu8qckn7cug4" path="res://Images/background_floor2.png" id="11_k0nl8"]
 [ext_resource type="Texture2D" uid="uid://clbkfdkamcsqf" path="res://Images/background_fence.png" id="11_ts1ul"]
 [ext_resource type="PackedScene" uid="uid://b0qnwokgbt1ft" path="res://Scenes/scarecrow.tscn" id="12_rpp0q"]
@@ -271,16 +274,23 @@ scale = Vector2(10, 5.59375)
 texture = ExtResource("4_wjlib")
 
 [node name="moon" type="Sprite2D" parent="PlayerCamera/BackgroundFollow"]
-position = Vector2(130, 118)
+position = Vector2(62, 167)
 scale = Vector2(5.54687, 5.54687)
 texture = ExtResource("5_du36f")
+script = ExtResource("6_k6qkn")
+
+[node name="game_timer" type="Timer" parent="PlayerCamera/BackgroundFollow/moon"]
+wait_time = 120.0
+one_shot = true
 
 [node name="bg_day" type="Sprite2D" parent="PlayerCamera/BackgroundFollow"]
+visible = false
 position = Vector2(640, 358)
 scale = Vector2(10, 5.59375)
 texture = ExtResource("6_etf6g")
 
 [node name="sun" type="Sprite2D" parent="PlayerCamera/BackgroundFollow"]
+visible = false
 position = Vector2(130, 118)
 scale = Vector2(5.54687, 5.54687)
 texture = ExtResource("7_legiq")
@@ -300,15 +310,22 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -43.0
-offset_bottom = 23.0
+offset_left = -158.0
+offset_right = -71.0
+offset_bottom = 60.0
 grow_horizontal = 0
 size_flags_horizontal = 8
+theme_override_fonts/normal_font = ExtResource("9_cnfnv")
 theme_override_font_sizes/normal_font_size = 50
-text = "0/4"
+text = "0/?"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerCamera/GUI"]
+position = Vector2(1246, 25)
+scale = Vector2(2.14062, 2.14062)
+texture = ExtResource("10_cfape")
 
 [node name="Hearts" type="Control" parent="PlayerCamera/GUI"]
 anchors_preset = 0
@@ -631,3 +648,4 @@ autoplay = true
 
 [connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="PlayerCamera/BackgroundFollow/moon/game_timer" to="PlayerCamera/BackgroundFollow/moon" method="_on_game_timer_timeout"]
