@@ -40,10 +40,6 @@ func walk_to_player():
 	position.x += direction_to_player.x / speed
 	
 	#aim gun
-	$GunPivotPoint.rotation = direction_to_player.angle()
-	
-	$SpriteFarmer.flip_h = direction_to_player.x < 0
-	$GunPivotPoint.scale.y = -3 if direction_to_player.x < 0 else 3
 	
 	$SpriteFarmer.play("walking")
 	
@@ -74,12 +70,16 @@ func walk_left():
 
 # shooting
 func shooting():
+	var direction_to_player = player.position - position
+	$GunPivotPoint.rotation = direction_to_player.angle()
+	$SpriteFarmer.flip_h = direction_to_player.x < 0
+	$GunPivotPoint.scale.y = -3 if direction_to_player.x < 0 else 3
 	if can_fire:
 		#shot start
 		can_fire = false
-		shoot_bullet()
 		$SpriteFarmer.play("walking")
 		$GunPivotPoint/SpriteGun.play("gun")
+		shoot_bullet()
 		#shot end
 		await get_tree().create_timer(2.0).timeout
 		#reload start
