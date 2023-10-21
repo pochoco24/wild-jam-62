@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjnxd5nucttbs"]
+[gd_scene load_steps=10 format=3 uid="uid://cjnxd5nucttbs"]
 
 [ext_resource type="Script" path="res://Scripts/eagle.gd" id="1_tj6wa"]
 [ext_resource type="Texture2D" uid="uid://d1xbwgoi7ucb8" path="res://Images/bird_fly.png" id="2_fchnt"]
+[ext_resource type="AudioStream" uid="uid://dv3nmocey378x" path="res://Sounds/Beak_Bandit_Crow_Caw_A.wav" id="3_udn06"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqm2p"]
 atlas = ExtResource("2_fchnt")
@@ -56,6 +57,10 @@ shape = SubResource("RectangleShape2D_r0lao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="range"]
 shape = SubResource("CircleShape2D_qpsdw")
+
+[node name="sound_caw" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_udn06")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]

@@ -27,6 +27,7 @@ func _on_body_entered(body):
 func _on_range_body_entered(body):
 	if body == player:
 		in_range = true
+		$sound_caw.play()
 
 
 func _on_range_body_exited(body):
