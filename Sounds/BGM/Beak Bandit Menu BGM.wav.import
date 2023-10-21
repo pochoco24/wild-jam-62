@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0svll0npufss"
+path="res://.godot/imported/Beak Bandit Menu BGM.wav-12a87b463534e3c35125ae9dc7fc94ba.sample"
+
+[deps]
+
+source_file="res://Sounds/BGM/Beak Bandit Menu BGM.wav"
+dest_files=["res://.godot/imported/Beak Bandit Menu BGM.wav-12a87b463534e3c35125ae9dc7fc94ba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

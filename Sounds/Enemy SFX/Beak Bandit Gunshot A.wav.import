@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5se3g5sqli8r"
+path="res://.godot/imported/Beak Bandit Gunshot A.wav-8090e03608758ab1f8dccdb5c2fc09a5.sample"
+
+[deps]
+
+source_file="res://Sounds/Enemy SFX/Beak Bandit Gunshot A.wav"
+dest_files=["res://.godot/imported/Beak Bandit Gunshot A.wav-8090e03608758ab1f8dccdb5c2fc09a5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,11 +1,10 @@
-@tool
 extends StaticBody2D
 
 var harvested = false
-@export var crop_texture : Texture2D = null : 
-	set(state):
-		$Sprite2D.texture = state
+@export var crop_textures : Array[Texture2D] = []
 
+func _ready():
+	$Sprite2D.texture = crop_textures.pick_random()
 
 func collect():
 	if !harvested:

@@ -357,6 +357,7 @@ unique_name_in_owner = true
 
 [node name="Crop" parent="Crops" instance=ExtResource("7_4ppeg")]
 position = Vector2(434, 575)
+crop_textures = null
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(549, 637)

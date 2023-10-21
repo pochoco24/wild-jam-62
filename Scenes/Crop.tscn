@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://duc7d07eldcv2"]
+[gd_scene load_steps=14 format=3 uid="uid://duc7d07eldcv2"]
 
 [ext_resource type="Script" path="res://Scripts/Crop.gd" id="1_7602u"]
 [ext_resource type="Texture2D" uid="uid://pcwggjhpmhul" path="res://Images/crop_cherry.png" id="1_yqi5u"]
+[ext_resource type="Texture2D" uid="uid://d0b28ekbgfq8b" path="res://Images/crop_corn.png" id="3_41qog"]
+[ext_resource type="Texture2D" uid="uid://cmmnjbosv04sp" path="res://Images/crop_seed.png" id="4_bkii8"]
 
 [sub_resource type="Curve" id="Curve_4niq4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.975904, 0.0210526), -2.87068, 0.0, 0, 0]
@@ -163,6 +165,7 @@ position = Vector2(431, 532)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_7602u")
+crop_textures = Array[Texture2D]([ExtResource("1_yqi5u"), ExtResource("3_41qog"), ExtResource("4_bkii8")])
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false

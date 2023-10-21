@@ -343,51 +343,67 @@ unique_name_in_owner = true
 
 [node name="Crop" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(677, 362)
+crop_textures = null
 
 [node name="Crop2" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(1662, 572)
+crop_textures = null
 
 [node name="Crop11" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(4063, 574)
+crop_textures = null
 
 [node name="Crop14" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(6765, 573)
+crop_textures = null
 
 [node name="Crop16" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(8472, 572)
+crop_textures = null
 
 [node name="Crop15" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(7914, 572)
+crop_textures = null
 
 [node name="Crop13" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(5625, 573)
+crop_textures = null
 
 [node name="Crop12" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(4536, 573)
+crop_textures = null
 
 [node name="Crop3" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(811, 572)
+crop_textures = null
 
 [node name="Crop10" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(2511, 569)
+crop_textures = null
 
 [node name="Crop4" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(-1532, 571)
+crop_textures = null
 
 [node name="Crop5" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(-2832, 571)
+crop_textures = null
 
 [node name="Crop7" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(-5149, 577)
+crop_textures = null
 
 [node name="Crop8" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(-5855, 569)
+crop_textures = null
 
 [node name="Crop9" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(-6561, 572)
+crop_textures = null
 
 [node name="Crop6" parent="Crops" instance=ExtResource("9_1bd8r")]
 position = Vector2(-3848, 573)
+crop_textures = null
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(549, 637)

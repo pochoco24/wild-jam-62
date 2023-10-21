@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bsx6p2xvr8831"
+path="res://.godot/imported/Beak Bandit Crow Caw B.wav-2276d3f3e52cfe739b7c42410dd7387a.sample"
+
+[deps]
+
+source_file="res://Sounds/Player SFX/Beak Bandit Crow Caw B.wav"
+dest_files=["res://.godot/imported/Beak Bandit Crow Caw B.wav-2276d3f3e52cfe739b7c42410dd7387a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

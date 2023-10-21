@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://oqk1fyt2gnd6"
+path="res://.godot/imported/Beak Bandit Man Mumble A.wav-ff1c4e7e9ae3a93cdf24d5d7312b0e85.sample"
+
+[deps]
+
+source_file="res://Sounds/Enemy SFX/Beak Bandit Man Mumble A.wav"
+dest_files=["res://.godot/imported/Beak Bandit Man Mumble A.wav-ff1c4e7e9ae3a93cdf24d5d7312b0e85.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
