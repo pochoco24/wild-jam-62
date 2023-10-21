@@ -60,7 +60,7 @@ size = Vector2(56, 62)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xnq7"]
 radius = 217.938
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["HurtPlayer"]]
+[node name="scarecrow" type="CharacterBody2D" groups=["HurtPlayer"]]
 script = ExtResource("1_sahvi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
