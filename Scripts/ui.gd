@@ -49,3 +49,6 @@ func next_lvl():
 
 func _on_next_lvl_pressed():
 	get_tree().paused = false
+	var current_scene = get_tree().current_scene.scene_file_path
+	var next_level = current_scene.to_int() + 1
+	get_tree().change_scene_to_file("res://Scenes/Levels/Level_" + str(next_level) + ".tscn")

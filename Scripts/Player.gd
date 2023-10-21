@@ -51,6 +51,9 @@ func _physics_process(delta):
 func set_crop_count(x : int):
 	crop_count = x
 	%GUI/CropCount.text = str(crop_count) + "/" + str(lvl_crops_available)
+	if crop_count == lvl_crops_available:
+		await get_tree().create_timer(1.0).timeout
+		%ui.next_lvl()
 
 func hurt():
 

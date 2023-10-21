@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 300.0/60.0
+const SPEED = 1200.0/60.0
 
 func _physics_process(delta):
 	position += Vector2(cos(rotation), sin(rotation)) * SPEED

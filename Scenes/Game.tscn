@@ -364,7 +364,7 @@ shape = SubResource("RectangleShape2D_ne4lx")
 position = Vector2(27, 547)
 
 [node name="ShootFarmer" parent="." instance=ExtResource("9_43ace")]
-position = Vector2(1632, 500)
+position = Vector2(1632, 550)
 
 [node name="ui" parent="." instance=ExtResource("14_fbeln")]
 unique_name_in_owner = true

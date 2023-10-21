@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://jmyt8v8r7f15"]
+[gd_scene load_steps=46 format=3 uid="uid://jmyt8v8r7f15"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_gw1gy"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_ijflv"]
@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cmjqedfqau1e2" path="res://Images/background_moon.png" id="5_du36f"]
 [ext_resource type="Texture2D" uid="uid://fywgnnvcwcyn" path="res://Images/background_day.png" id="6_etf6g"]
 [ext_resource type="Texture2D" uid="uid://c1370um21cfii" path="res://Images/background_sun.png" id="7_legiq"]
+[ext_resource type="Texture2D" uid="uid://b0ue404bbxr2b" path="res://Images/background_cloud.png" id="8_0y3rx"]
 [ext_resource type="Texture2D" uid="uid://b7t6rpvayrgi8" path="res://Images/Heart_Health.png" id="8_uk7yc"]
 [ext_resource type="PackedScene" uid="uid://duc7d07eldcv2" path="res://Scenes/Crop.tscn" id="9_wkpc6"]
 [ext_resource type="Texture2D" uid="uid://lu8qckn7cug4" path="res://Images/background_floor2.png" id="11_k0nl8"]
+[ext_resource type="Texture2D" uid="uid://clbkfdkamcsqf" path="res://Images/background_fence.png" id="11_ts1ul"]
 [ext_resource type="PackedScene" uid="uid://b0qnwokgbt1ft" path="res://Scenes/scarecrow.tscn" id="12_rpp0q"]
 [ext_resource type="PackedScene" uid="uid://csqe6ncspknhp" path="res://Scenes/shoot_farmer.tscn" id="13_a6d5i"]
 [ext_resource type="PackedScene" uid="uid://c25o2jmd32yfq" path="res://Scenes/ui.tscn" id="14_q1o8k"]
@@ -222,7 +224,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne4lx"]
 size = Vector2(16002, 149)
 
-[node name="Game" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgx2t"]
+size = Vector2(141, 1061)
+
+[node name="Level1" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
@@ -392,50 +397,228 @@ position = Vector2(282, 15)
 scale = Vector2(8, 8)
 texture = ExtResource("11_k0nl8")
 region_enabled = true
-region_rect = Rect2(0, 0, 2000, 16)
+region_rect = Rect2(0, 0, 2100, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(281, 25.5)
 shape = SubResource("RectangleShape2D_ne4lx")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("12_rpp0q")]
-position = Vector2(72, 539)
-scale = Vector2(1.51, 1.51)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground"]
+position = Vector2(281, -774.5)
+shape = SubResource("RectangleShape2D_ne4lx")
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("12_rpp0q")]
-position = Vector2(2693, 540)
-scale = Vector2(1.51, 1.51)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
+position = Vector2(-7519.5, -500)
+shape = SubResource("RectangleShape2D_bgx2t")
 
-[node name="CharacterBody2D6" parent="." instance=ExtResource("12_rpp0q")]
-position = Vector2(4425, 538)
-scale = Vector2(1.51, 1.51)
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(-7472, -97)
+scale = Vector2(6, 6)
+texture = ExtResource("11_ts1ul")
 
-[node name="CharacterBody2D7" parent="." instance=ExtResource("12_rpp0q")]
-position = Vector2(5663, 539)
-scale = Vector2(1.51, 1.51)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground"]
+position = Vector2(8079, -498)
+shape = SubResource("RectangleShape2D_bgx2t")
 
-[node name="CharacterBody2D8" parent="." instance=ExtResource("12_rpp0q")]
-position = Vector2(8117, 540)
-scale = Vector2(1.51, 1.51)
-
-[node name="CharacterBody2D3" parent="." instance=ExtResource("12_rpp0q")]
-position = Vector2(-3961, 539)
-scale = Vector2(1.51, 1.51)
-
-[node name="CharacterBody2D4" parent="." instance=ExtResource("12_rpp0q")]
-position = Vector2(-5471, 539)
-scale = Vector2(1.51, 1.51)
-
-[node name="CharacterBody2D5" parent="." instance=ExtResource("12_rpp0q")]
-position = Vector2(-6352, 540)
-scale = Vector2(1.51, 1.51)
-
-[node name="ShootFarmer" parent="." instance=ExtResource("13_a6d5i")]
-position = Vector2(-2135, 538)
-scale = Vector2(1.345, 1.345)
+[node name="Sprite2D2" type="Sprite2D" parent="Ground"]
+position = Vector2(8033, -97)
+scale = Vector2(6, 6)
+texture = ExtResource("11_ts1ul")
+flip_h = true
 
 [node name="ui" parent="." instance=ExtResource("14_q1o8k")]
 unique_name_in_owner = true
+
+[node name="clouds" type="Node2D" parent="."]
+visible = false
+position = Vector2(1145, 236)
+scale = Vector2(8.49219, 8.49219)
+
+[node name="clouds" type="Sprite2D" parent="clouds"]
+z_index = -1
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds2" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(107.68, -0.75805)
+scale = Vector2(0.428473, 0.428473)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds3" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-195.095, -7.79759)
+scale = Vector2(0.560143, 0.560143)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds4" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-259.179, 9.18491)
+scale = Vector2(0.338949, 0.338949)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds5" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-318.48, -15.1427)
+scale = Vector2(0.392252, 0.392252)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds8" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-588.14, -2.47633)
+scale = Vector2(0.560143, 0.560143)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds9" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-652.224, 14.5062)
+scale = Vector2(0.338949, 0.338949)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds10" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-711.525, -9.82143)
+scale = Vector2(0.392252, 0.392252)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds11" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-824.71, -2.47633)
+scale = Vector2(0.560143, 0.560143)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds12" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-888.795, 14.5062)
+scale = Vector2(0.338949, 0.338949)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds13" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-948.096, -9.82143)
+scale = Vector2(0.392252, 0.392252)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds14" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(315.043, 1.52735)
+scale = Vector2(0.560143, 0.560143)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds15" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(250.959, 18.5098)
+scale = Vector2(0.338949, 0.338949)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds16" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(191.658, -5.81775)
+scale = Vector2(0.392252, 0.392252)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds17" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(528.651, 1.52735)
+scale = Vector2(0.560143, 0.560143)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds18" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(464.567, 18.5098)
+scale = Vector2(0.338949, 0.338949)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds19" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(405.266, -5.81775)
+scale = Vector2(0.392252, 0.392252)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds20" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(718.237, -0.474487)
+scale = Vector2(0.560143, 0.560143)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds21" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(654.153, 16.508)
+scale = Vector2(0.338949, 0.338949)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds22" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(594.852, -7.81959)
+scale = Vector2(0.392252, 0.392252)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds23" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(949.744, -4.47817)
+scale = Vector2(0.560143, 0.560143)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds24" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(885.66, 12.5043)
+scale = Vector2(0.338949, 0.338949)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds25" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(826.359, -11.8233)
+scale = Vector2(0.392252, 0.392252)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds6" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-436.99, 0.942042)
+scale = Vector2(0.575951, 0.575951)
+texture = ExtResource("8_0y3rx")
+
+[node name="clouds7" type="Sprite2D" parent="clouds"]
+z_index = -1
+position = Vector2(-509.998, -19.1941)
+scale = Vector2(0.288628, 0.288628)
+texture = ExtResource("8_0y3rx")
+
+[node name="Enemy\'s" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+position = Vector2(72, 539)
+scale = Vector2(1.51, 1.51)
+
+[node name="CharacterBody2D2" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+position = Vector2(2693, 540)
+scale = Vector2(1.51, 1.51)
+
+[node name="CharacterBody2D6" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+position = Vector2(4425, 538)
+scale = Vector2(1.51, 1.51)
+
+[node name="CharacterBody2D7" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+position = Vector2(5663, 539)
+scale = Vector2(1.51, 1.51)
+
+[node name="CharacterBody2D8" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+position = Vector2(8117, 540)
+scale = Vector2(1.51, 1.51)
+
+[node name="CharacterBody2D3" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+position = Vector2(-3961, 539)
+scale = Vector2(1.51, 1.51)
+
+[node name="CharacterBody2D4" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+position = Vector2(-5471, 539)
+scale = Vector2(1.51, 1.51)
+
+[node name="CharacterBody2D5" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+position = Vector2(-6352, 540)
+scale = Vector2(1.51, 1.51)
+
+[node name="ShootFarmer" parent="Enemy\'s" instance=ExtResource("13_a6d5i")]
+position = Vector2(-2135, 538)
+scale = Vector2(1.345, 1.345)
 
 [connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
