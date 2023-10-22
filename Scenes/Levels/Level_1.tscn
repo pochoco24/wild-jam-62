@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://jmyt8v8r7f15"]
+[gd_scene load_steps=53 format=3 uid="uid://jmyt8v8r7f15"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_gw1gy"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_ijflv"]
@@ -19,10 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://lu8qckn7cug4" path="res://Images/background_floor2.png" id="11_k0nl8"]
 [ext_resource type="Texture2D" uid="uid://clbkfdkamcsqf" path="res://Images/background_fence.png" id="11_ts1ul"]
 [ext_resource type="PackedScene" uid="uid://b0qnwokgbt1ft" path="res://Scenes/scarecrow.tscn" id="12_rpp0q"]
-[ext_resource type="PackedScene" uid="uid://csqe6ncspknhp" path="res://Scenes/shoot_farmer.tscn" id="13_a6d5i"]
 [ext_resource type="Texture2D" uid="uid://bknjtl28iakvi" path="res://Images/background_forest.png" id="13_wn07b"]
 [ext_resource type="PackedScene" uid="uid://c25o2jmd32yfq" path="res://Scenes/ui.tscn" id="14_q1o8k"]
-[ext_resource type="PackedScene" uid="uid://cjnxd5nucttbs" path="res://Scenes/eagle.tscn" id="16_j0e85"]
 [ext_resource type="AudioStream" uid="uid://cosx2jtv8qdcb" path="res://Sounds/BGM/Beak Bandit Level BGM.wav" id="22_o8o2t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqnrc"]
@@ -650,13 +648,6 @@ z_index = -1
 position = Vector2(-509.998, -19.1941)
 scale = Vector2(0.288628, 0.288628)
 texture = ExtResource("8_0y3rx")
-
-[node name="ShootFarmer" parent="." instance=ExtResource("13_a6d5i")]
-position = Vector2(-2135, 538)
-scale = Vector2(1.345, 1.345)
-
-[node name="eagle" parent="." instance=ExtResource("16_j0e85")]
-position = Vector2(3360, -85)
 
 [node name="scarecrows" type="Node2D" parent="."]
 

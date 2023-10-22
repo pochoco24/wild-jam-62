@@ -277,6 +277,88 @@ texture_pressed = ExtResource("8_gd2id")
 texture_hover = ExtResource("8_lrhxk")
 stretch_mode = 0
 
+[node name="the_end" type="CanvasLayer" parent="."]
+
+[node name="ui" type="ColorRect" parent="the_end"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.780392, 0, 0.45098)
+
+[node name="Label" type="Label" parent="the_end/ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -213.5
+offset_right = 255.0
+offset_bottom = -90.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 100
+text = "WELL DONE"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="the_end/ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -121.0
+offset_right = 392.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_0pst2")
+theme_override_font_sizes/normal_font_size = 50
+text = "You harvested all of the crops!"
+
+[node name="Panel" type="Panel" parent="the_end/ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = -44.0
+offset_right = 229.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="the_end/ui/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.5
+offset_top = -67.0
+offset_right = 225.5
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.799999)
+
+[node name="menu" type="TextureButton" parent="the_end/ui/Panel/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("8_gd2id")
+texture_pressed = ExtResource("8_gd2id")
+texture_hover = ExtResource("8_lrhxk")
+stretch_mode = 0
+
 [node name="timeover" type="CanvasLayer" parent="."]
 
 [node name="ui" type="ColorRect" parent="timeover"]
@@ -430,5 +512,6 @@ volume_db = -25.0
 [connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer3/next_lvl" to="." method="_on_next_lvl_pressed"]
 [connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer3/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer3/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="the_end/ui/Panel/VBoxContainer3/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="timeover/ui/Panel/VBoxContainer4/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="timeover/ui/Panel/VBoxContainer4/menu" to="." method="_on_menu_pressed"]
