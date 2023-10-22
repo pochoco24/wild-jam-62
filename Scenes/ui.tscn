@@ -347,6 +347,7 @@ texture_hover = ExtResource("8_lrhxk")
 stretch_mode = 0
 
 [node name="description" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ui" type="ColorRect" parent="description"]
 anchors_preset = 15
