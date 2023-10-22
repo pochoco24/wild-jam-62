@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://jmyt8v8r7f15"]
+[gd_scene load_steps=53 format=3 uid="uid://jmyt8v8r7f15"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_gw1gy"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_ijflv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cmjqedfqau1e2" path="res://Images/background_moon.png" id="5_du36f"]
 [ext_resource type="Texture2D" uid="uid://fywgnnvcwcyn" path="res://Images/background_day.png" id="6_etf6g"]
 [ext_resource type="Script" path="res://Scripts/game_timer.gd" id="6_k6qkn"]
+[ext_resource type="AudioStream" uid="uid://bnx6t7npta156" path="res://Sounds/US SFX/Beak Bandit 1 Second Clock Tick.wav" id="7_hj5xq"]
 [ext_resource type="Texture2D" uid="uid://c1370um21cfii" path="res://Images/background_sun.png" id="7_legiq"]
 [ext_resource type="Texture2D" uid="uid://b0ue404bbxr2b" path="res://Images/background_cloud.png" id="8_0y3rx"]
 [ext_resource type="Texture2D" uid="uid://b7t6rpvayrgi8" path="res://Images/Heart_Health.png" id="8_uk7yc"]
@@ -17,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://clbkfdkamcsqf" path="res://Images/background_fence.png" id="11_ts1ul"]
 [ext_resource type="PackedScene" uid="uid://b0qnwokgbt1ft" path="res://Scenes/scarecrow.tscn" id="12_rpp0q"]
 [ext_resource type="PackedScene" uid="uid://csqe6ncspknhp" path="res://Scenes/shoot_farmer.tscn" id="13_a6d5i"]
+[ext_resource type="Texture2D" uid="uid://bknjtl28iakvi" path="res://Images/background_forest.png" id="13_wn07b"]
 [ext_resource type="PackedScene" uid="uid://c25o2jmd32yfq" path="res://Scenes/ui.tscn" id="14_q1o8k"]
 [ext_resource type="AudioStream" uid="uid://kg85ltc6f70g" path="res://Sounds/Collect_Corvis.wav" id="16_ccvbu"]
 [ext_resource type="PackedScene" uid="uid://cjnxd5nucttbs" path="res://Scenes/eagle.tscn" id="16_j0e85"]
@@ -283,6 +285,10 @@ script = ExtResource("6_k6qkn")
 wait_time = 120.0
 one_shot = true
 
+[node name="tick" type="AudioStreamPlayer2D" parent="PlayerCamera/BackgroundFollow/moon"]
+stream = ExtResource("7_hj5xq")
+volume_db = -20.0
+
 [node name="bg_day" type="Sprite2D" parent="PlayerCamera/BackgroundFollow"]
 visible = false
 position = Vector2(640, 358)
@@ -431,6 +437,16 @@ crop_textures = null
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(549, 637)
+
+[node name="forest" type="Sprite2D" parent="Ground"]
+self_modulate = Color(0, 0.439216, 0.105882, 1)
+z_index = -2
+texture_repeat = 2
+position = Vector2(282, -313)
+scale = Vector2(5, 5)
+texture = ExtResource("13_wn07b")
+region_enabled = true
+region_rect = Rect2(-0.18045, -0.0602183, 3458.79, 130.364)
 
 [node name="Sprite2D7" type="Sprite2D" parent="Ground"]
 texture_repeat = 2
@@ -629,37 +645,37 @@ scale = Vector2(1.345, 1.345)
 [node name="eagle" parent="." instance=ExtResource("16_j0e85")]
 position = Vector2(3360, -85)
 
-[node name="Enemy\'s" type="Node2D" parent="."]
+[node name="scarecrows" type="Node2D" parent="."]
 
-[node name="CharacterBody2D" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+[node name="CharacterBody2D" parent="scarecrows" instance=ExtResource("12_rpp0q")]
 position = Vector2(72, 539)
 scale = Vector2(1.51, 1.51)
 
-[node name="CharacterBody2D2" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+[node name="CharacterBody2D2" parent="scarecrows" instance=ExtResource("12_rpp0q")]
 position = Vector2(2693, 540)
 scale = Vector2(1.51, 1.51)
 
-[node name="CharacterBody2D6" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+[node name="CharacterBody2D6" parent="scarecrows" instance=ExtResource("12_rpp0q")]
 position = Vector2(4425, 538)
 scale = Vector2(1.51, 1.51)
 
-[node name="CharacterBody2D7" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+[node name="CharacterBody2D7" parent="scarecrows" instance=ExtResource("12_rpp0q")]
 position = Vector2(5663, 539)
 scale = Vector2(1.51, 1.51)
 
-[node name="CharacterBody2D8" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+[node name="CharacterBody2D8" parent="scarecrows" instance=ExtResource("12_rpp0q")]
 position = Vector2(8117, 540)
 scale = Vector2(1.51, 1.51)
 
-[node name="CharacterBody2D3" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+[node name="CharacterBody2D3" parent="scarecrows" instance=ExtResource("12_rpp0q")]
 position = Vector2(-3961, 539)
 scale = Vector2(1.51, 1.51)
 
-[node name="CharacterBody2D4" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+[node name="CharacterBody2D4" parent="scarecrows" instance=ExtResource("12_rpp0q")]
 position = Vector2(-5471, 539)
 scale = Vector2(1.51, 1.51)
 
-[node name="CharacterBody2D5" parent="Enemy\'s" instance=ExtResource("12_rpp0q")]
+[node name="CharacterBody2D5" parent="scarecrows" instance=ExtResource("12_rpp0q")]
 position = Vector2(-6352, 540)
 scale = Vector2(1.51, 1.51)
 

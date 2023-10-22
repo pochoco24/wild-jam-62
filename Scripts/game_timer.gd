@@ -16,6 +16,8 @@ func _physics_process(delta):
 	#Flicker when time is low
 	if $game_timer.time_left < 3:
 		visible = fmod($game_timer.time_left, 0.3) > 0.15
+		if not $tick.is_playing():
+			$tick.play()
 
 func _on_game_timer_timeout():
 	print("Time over")

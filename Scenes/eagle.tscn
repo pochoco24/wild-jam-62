@@ -1,32 +1,32 @@
 [gd_scene load_steps=10 format=3 uid="uid://cjnxd5nucttbs"]
 
 [ext_resource type="Script" path="res://Scripts/eagle.gd" id="1_tj6wa"]
-[ext_resource type="Texture2D" uid="uid://d1xbwgoi7ucb8" path="res://Images/bird_fly.png" id="2_fchnt"]
+[ext_resource type="Texture2D" uid="uid://bi3okauupqdvy" path="res://Images/eagle.png" id="2_tjm08"]
 [ext_resource type="AudioStream" uid="uid://dv3nmocey378x" path="res://Sounds/Beak_Bandit_Crow_Caw_A.wav" id="3_udn06"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mqm2p"]
-atlas = ExtResource("2_fchnt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuxkw"]
+atlas = ExtResource("2_tjm08")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_amed5"]
-atlas = ExtResource("2_fchnt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4m6l"]
+atlas = ExtResource("2_tjm08")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3gj3h"]
-atlas = ExtResource("2_fchnt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hwf4"]
+atlas = ExtResource("2_tjm08")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4p5kw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mqm2p")
+"texture": SubResource("AtlasTexture_uuxkw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_amed5")
+"texture": SubResource("AtlasTexture_l4m6l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3gj3h")
+"texture": SubResource("AtlasTexture_7hwf4")
 }],
 "loop": true,
 "name": &"default",
@@ -45,8 +45,6 @@ script = ExtResource("1_tj6wa")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4p5kw")
 autoplay = "default"
-frame = 2
-frame_progress = 0.253307
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
