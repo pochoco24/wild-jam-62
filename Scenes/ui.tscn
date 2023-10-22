@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c25o2jmd32yfq"]
+[gd_scene load_steps=18 format=3 uid="uid://c25o2jmd32yfq"]
 
 [ext_resource type="FontFile" uid="uid://bsl5qvppa4cqg" path="res://PixelifySans-Medium.ttf" id="1_0pst2"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_aaoh5"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cf3p6hsbjda5b" path="res://Images/button_continue-export.png" id="7_a6wtx"]
 [ext_resource type="Texture2D" uid="uid://b3205auiay711" path="res://Images/button_menu-export.png" id="8_gd2id"]
 [ext_resource type="Texture2D" uid="uid://dwl5gr5u5plbn" path="res://Images/button_menu-hoverpng.png" id="8_lrhxk"]
+[ext_resource type="Texture2D" uid="uid://cyn8yntsjajgk" path="res://Images/button_nextLevel-export.png" id="9_aa72a"]
+[ext_resource type="Texture2D" uid="uid://blaqdhwqdr0db" path="res://Images/button_nextLevel-hover.png" id="10_2pjqh"]
 [ext_resource type="AudioStream" uid="uid://0svll0npufss" path="res://Sounds/BGM/Beak Bandit Menu BGM.wav" id="10_draou"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7xm4"]
@@ -256,9 +258,9 @@ grow_vertical = 2
 [node name="next_lvl" type="TextureButton" parent="next_lvl/ui/Panel/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = ExtResource("7_a6wtx")
-texture_pressed = ExtResource("7_a6wtx")
-texture_hover = ExtResource("6_lppw1")
+texture_normal = ExtResource("9_aa72a")
+texture_pressed = ExtResource("9_aa72a")
+texture_hover = ExtResource("10_2pjqh")
 stretch_mode = 0
 
 [node name="restart" type="TextureButton" parent="next_lvl/ui/Panel/VBoxContainer3"]
