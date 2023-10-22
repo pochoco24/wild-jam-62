@@ -671,7 +671,7 @@ position = Vector2(-1411, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D2" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(1509, 540)
+position = Vector2(1607, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D6" parent="scarecrows" instance=ExtResource("21_nyohd")]

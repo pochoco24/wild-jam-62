@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://duh3jllkgpepi"]
+[gd_scene load_steps=55 format=3 uid="uid://duh3jllkgpepi"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_u7fxx"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_bijoy"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b0qnwokgbt1ft" path="res://Scenes/scarecrow.tscn" id="21_ilc84"]
 [ext_resource type="AudioStream" uid="uid://cosx2jtv8qdcb" path="res://Sounds/BGM/Beak Bandit Level BGM.wav" id="22_3md07"]
 [ext_resource type="PackedScene" uid="uid://csqe6ncspknhp" path="res://Scenes/shoot_farmer.tscn" id="23_6v78w"]
+[ext_resource type="PackedScene" uid="uid://cjnxd5nucttbs" path="res://Scenes/eagle.tscn" id="24_c5siy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqnrc"]
 radius = 28.1114
@@ -383,7 +384,7 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 
 [node name="Crop" parent="Crops" instance=ExtResource("15_42tvj")]
-position = Vector2(275, 573)
+position = Vector2(-205, 573)
 crop_textures = null
 
 [node name="Crop17" parent="Crops" instance=ExtResource("15_42tvj")]
@@ -391,7 +392,7 @@ position = Vector2(3282, 567)
 crop_textures = null
 
 [node name="Crop2" parent="Crops" instance=ExtResource("15_42tvj")]
-position = Vector2(1662, 572)
+position = Vector2(566, 572)
 crop_textures = null
 
 [node name="Crop11" parent="Crops" instance=ExtResource("15_42tvj")]
@@ -403,7 +404,7 @@ position = Vector2(6765, 573)
 crop_textures = null
 
 [node name="Crop16" parent="Crops" instance=ExtResource("15_42tvj")]
-position = Vector2(8420, 572)
+position = Vector2(8220, 572)
 crop_textures = null
 
 [node name="Crop15" parent="Crops" instance=ExtResource("15_42tvj")]
@@ -435,11 +436,15 @@ position = Vector2(-2832, 571)
 crop_textures = null
 
 [node name="Crop7" parent="Crops" instance=ExtResource("15_42tvj")]
-position = Vector2(-5149, 577)
+position = Vector2(-4276, 573)
+crop_textures = null
+
+[node name="Crop18" parent="Crops" instance=ExtResource("15_42tvj")]
+position = Vector2(-4620, 573)
 crop_textures = null
 
 [node name="Crop8" parent="Crops" instance=ExtResource("15_42tvj")]
-position = Vector2(-5855, 569)
+position = Vector2(-5899, 570)
 crop_textures = null
 
 [node name="Crop9" parent="Crops" instance=ExtResource("15_42tvj")]
@@ -447,7 +452,7 @@ position = Vector2(-6561, 572)
 crop_textures = null
 
 [node name="Crop6" parent="Crops" instance=ExtResource("15_42tvj")]
-position = Vector2(-3848, 573)
+position = Vector2(-3591, 571)
 crop_textures = null
 
 [node name="Ground" type="StaticBody2D" parent="."]
@@ -654,14 +659,27 @@ position = Vector2(-509.998, -19.1941)
 scale = Vector2(0.288628, 0.288628)
 texture = ExtResource("20_n64a1")
 
+[node name="ShootFarmer" parent="." instance=ExtResource("23_6v78w")]
+position = Vector2(-3002, 551)
+
+[node name="ShootFarmer2" parent="." instance=ExtResource("23_6v78w")]
+position = Vector2(6872, 554)
+
+[node name="eagle" parent="." instance=ExtResource("24_c5siy")]
+position = Vector2(2238, -110)
+
 [node name="scarecrows" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="scarecrows" instance=ExtResource("21_ilc84")]
-position = Vector2(192, 539)
+position = Vector2(-1451, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D2" parent="scarecrows" instance=ExtResource("21_ilc84")]
-position = Vector2(1509, 540)
+position = Vector2(1230, 540)
+scale = Vector2(1.51, 1.51)
+
+[node name="CharacterBody2D10" parent="scarecrows" instance=ExtResource("21_ilc84")]
+position = Vector2(-283, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D6" parent="scarecrows" instance=ExtResource("21_ilc84")]
@@ -669,7 +687,7 @@ position = Vector2(4425, 538)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D7" parent="scarecrows" instance=ExtResource("21_ilc84")]
-position = Vector2(5855, 539)
+position = Vector2(5548, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D8" parent="scarecrows" instance=ExtResource("21_ilc84")]
@@ -677,24 +695,25 @@ position = Vector2(8013, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D3" parent="scarecrows" instance=ExtResource("21_ilc84")]
-position = Vector2(-3769, 539)
+position = Vector2(-3659, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D4" parent="scarecrows" instance=ExtResource("21_ilc84")]
-position = Vector2(-5471, 539)
+position = Vector2(-5637, 539)
+scale = Vector2(1.51, 1.51)
+
+[node name="CharacterBody2D9" parent="scarecrows" instance=ExtResource("21_ilc84")]
+position = Vector2(-4700, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D5" parent="scarecrows" instance=ExtResource("21_ilc84")]
-position = Vector2(-6352, 540)
+position = Vector2(-6744, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_3md07")
 volume_db = -20.0
 autoplay = true
-
-[node name="ShootFarmer" parent="." instance=ExtResource("23_6v78w")]
-position = Vector2(-2001, 554)
 
 [connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
