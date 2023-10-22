@@ -1,8 +1,10 @@
-[gd_scene load_steps=53 format=3 uid="uid://jmyt8v8r7f15"]
+[gd_scene load_steps=55 format=3 uid="uid://jmyt8v8r7f15"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_gw1gy"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_ijflv"]
 [ext_resource type="Script" path="res://Scripts/PlayerCamera.gd" id="3_nl4iu"]
+[ext_resource type="AudioStream" uid="uid://f21ds3pymkba" path="res://Sounds/Player SFX/Beak Bandit Crow Damage A.wav" id="3_tfnta"]
+[ext_resource type="AudioStream" uid="uid://ccqo846v3fcif" path="res://Sounds/Player SFX/Beak Bandit Crow Flutter.wav" id="4_3ikkx"]
 [ext_resource type="Texture2D" uid="uid://b1pyc7ykew58c" path="res://Images/background_night.png" id="4_wjlib"]
 [ext_resource type="Texture2D" uid="uid://cmjqedfqau1e2" path="res://Images/background_moon.png" id="5_du36f"]
 [ext_resource type="Texture2D" uid="uid://fywgnnvcwcyn" path="res://Images/background_day.png" id="6_etf6g"]
@@ -262,6 +264,14 @@ autoplay = "gliding"
 [node name="InvinsibilityTimer" type="Timer" parent="Player"]
 one_shot = true
 
+[node name="damage_sound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("3_tfnta")
+volume_db = -20.0
+
+[node name="fly_sound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("4_3ikkx")
+volume_db = -20.0
+
 [node name="PlayerCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(568, 398)
@@ -332,7 +342,6 @@ grow_horizontal = 0
 size_flags_horizontal = 8
 theme_override_fonts/normal_font = ExtResource("9_cnfnv")
 theme_override_font_sizes/normal_font_size = 50
-text = "0/?"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0

@@ -31,6 +31,7 @@ func _physics_process(delta):
 		$AnimatedSprite2D.speed_scale = 1
 		if $AnimatedSprite2D.animation == "walking":
 			$AnimatedSprite2D.animation = "gliding"
+			$fly_sound.play()
 		rotation = -Vector2(velocity.x, fly_speed*2).angle() + PI/2
 	else:
 		$AnimatedSprite2D.animation = "walking"
@@ -65,6 +66,7 @@ func hurt():
 			hearts -= 1
 		
 		%GUI/Hearts.get_child(hearts).play("break")
+		$damage_sound.play()
 		
 		if hearts == 0:
 			print("You lose")
