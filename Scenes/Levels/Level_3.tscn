@@ -294,7 +294,7 @@ texture = ExtResource("7_17ybm")
 script = ExtResource("8_8aoc5")
 
 [node name="game_timer" type="Timer" parent="PlayerCamera/BackgroundFollow/moon"]
-wait_time = 240.0
+wait_time = 180.0
 one_shot = true
 
 [node name="tick" type="AudioStreamPlayer2D" parent="PlayerCamera/BackgroundFollow/moon"]
