@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://yuvjr1whv051"]
+[gd_scene load_steps=54 format=3 uid="uid://yuvjr1whv051"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ykgnq"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_l6mqk"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ue404bbxr2b" path="res://Images/background_cloud.png" id="20_gd4rd"]
 [ext_resource type="PackedScene" uid="uid://b0qnwokgbt1ft" path="res://Scenes/scarecrow.tscn" id="21_0cf1u"]
 [ext_resource type="AudioStream" uid="uid://cosx2jtv8qdcb" path="res://Sounds/BGM/Beak Bandit Level BGM.wav" id="22_iiiri"]
+[ext_resource type="PackedScene" uid="uid://csqe6ncspknhp" path="res://Scenes/shoot_farmer.tscn" id="23_c545c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqnrc"]
 radius = 28.1114
@@ -234,7 +235,7 @@ size = Vector2(16002, 149)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgx2t"]
 size = Vector2(141, 1061)
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
@@ -293,7 +294,7 @@ texture = ExtResource("7_3a5k4")
 script = ExtResource("8_hkry7")
 
 [node name="game_timer" type="Timer" parent="PlayerCamera/BackgroundFollow/moon"]
-wait_time = 120.0
+wait_time = 180.0
 one_shot = true
 
 [node name="tick" type="AudioStreamPlayer2D" parent="PlayerCamera/BackgroundFollow/moon"]
@@ -382,7 +383,11 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 
 [node name="Crop" parent="Crops" instance=ExtResource("15_ir0py")]
-position = Vector2(131, 573)
+position = Vector2(275, 573)
+crop_textures = null
+
+[node name="Crop17" parent="Crops" instance=ExtResource("15_ir0py")]
+position = Vector2(3282, 567)
 crop_textures = null
 
 [node name="Crop2" parent="Crops" instance=ExtResource("15_ir0py")]
@@ -398,11 +403,11 @@ position = Vector2(6765, 573)
 crop_textures = null
 
 [node name="Crop16" parent="Crops" instance=ExtResource("15_ir0py")]
-position = Vector2(8472, 572)
+position = Vector2(8420, 572)
 crop_textures = null
 
 [node name="Crop15" parent="Crops" instance=ExtResource("15_ir0py")]
-position = Vector2(7914, 572)
+position = Vector2(7786, 572)
 crop_textures = null
 
 [node name="Crop13" parent="Crops" instance=ExtResource("15_ir0py")]
@@ -414,7 +419,7 @@ position = Vector2(4536, 573)
 crop_textures = null
 
 [node name="Crop3" parent="Crops" instance=ExtResource("15_ir0py")]
-position = Vector2(811, 572)
+position = Vector2(1363, 572)
 crop_textures = null
 
 [node name="Crop10" parent="Crops" instance=ExtResource("15_ir0py")]
@@ -652,11 +657,11 @@ texture = ExtResource("20_gd4rd")
 [node name="scarecrows" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="scarecrows" instance=ExtResource("21_0cf1u")]
-position = Vector2(72, 539)
+position = Vector2(192, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D2" parent="scarecrows" instance=ExtResource("21_0cf1u")]
-position = Vector2(2693, 540)
+position = Vector2(1509, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D6" parent="scarecrows" instance=ExtResource("21_0cf1u")]
@@ -664,15 +669,15 @@ position = Vector2(4425, 538)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D7" parent="scarecrows" instance=ExtResource("21_0cf1u")]
-position = Vector2(5663, 539)
+position = Vector2(5855, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D8" parent="scarecrows" instance=ExtResource("21_0cf1u")]
-position = Vector2(8117, 540)
+position = Vector2(8013, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D3" parent="scarecrows" instance=ExtResource("21_0cf1u")]
-position = Vector2(-3961, 539)
+position = Vector2(-3769, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D4" parent="scarecrows" instance=ExtResource("21_0cf1u")]
@@ -687,6 +692,9 @@ scale = Vector2(1.51, 1.51)
 stream = ExtResource("22_iiiri")
 volume_db = -20.0
 autoplay = true
+
+[node name="ShootFarmer" parent="." instance=ExtResource("23_c545c")]
+position = Vector2(-2001, 554)
 
 [connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
