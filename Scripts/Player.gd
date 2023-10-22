@@ -56,7 +56,7 @@ func set_crop_count(x : int):
 	crop_count = x
 	%GUI/CropCount.text = str(crop_count) + "/" + str(lvl_crops_available)
 	if crop_count == lvl_crops_available:
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(0.5).timeout
 		var current_level = get_tree().current_scene.scene_file_path
 		var level_number = current_level.to_int()
 		if level_number == 5:
