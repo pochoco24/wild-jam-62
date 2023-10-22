@@ -20,8 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://csqe6ncspknhp" path="res://Scenes/shoot_farmer.tscn" id="13_a6d5i"]
 [ext_resource type="Texture2D" uid="uid://bknjtl28iakvi" path="res://Images/background_forest.png" id="13_wn07b"]
 [ext_resource type="PackedScene" uid="uid://c25o2jmd32yfq" path="res://Scenes/ui.tscn" id="14_q1o8k"]
-[ext_resource type="AudioStream" uid="uid://kg85ltc6f70g" path="res://Sounds/Collect_Corvis.wav" id="16_ccvbu"]
 [ext_resource type="PackedScene" uid="uid://cjnxd5nucttbs" path="res://Scenes/eagle.tscn" id="16_j0e85"]
+[ext_resource type="AudioStream" uid="uid://cosx2jtv8qdcb" path="res://Sounds/BGM/Beak Bandit Level BGM.wav" id="22_o8o2t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gqnrc"]
 radius = 28.1114
@@ -680,7 +680,7 @@ position = Vector2(-6352, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_ccvbu")
+stream = ExtResource("22_o8o2t")
 volume_db = -20.0
 autoplay = true
 

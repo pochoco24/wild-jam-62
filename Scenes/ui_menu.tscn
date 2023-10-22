@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://xc6m4ctmllag" path="res://Images/button_play_hover.png" id="10_2ru3l"]
 [ext_resource type="Texture2D" uid="uid://cd1m8jf4trfrr" path="res://Images/button_quit.png" id="10_kwjfj"]
 [ext_resource type="Texture2D" uid="uid://bx6s0k14ob7xw" path="res://Images/button_quit_hover.png" id="12_y5ppl"]
-[ext_resource type="AudioStream" uid="uid://brp6g8qsl8p4k" path="res://Sounds/Chill_Corvis.wav" id="13_o0ark"]
+[ext_resource type="AudioStream" uid="uid://0svll0npufss" path="res://Sounds/BGM/Beak Bandit Menu BGM.wav" id="13_087w8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6fibb"]
 atlas = ExtResource("4_6htyf")
@@ -512,7 +512,7 @@ texture_hover = ExtResource("12_y5ppl")
 stretch_mode = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_o0ark")
+stream = ExtResource("13_087w8")
 volume_db = -20.0
 autoplay = true
 

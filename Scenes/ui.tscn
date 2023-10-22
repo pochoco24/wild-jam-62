@@ -2,7 +2,6 @@
 
 [ext_resource type="FontFile" uid="uid://bsl5qvppa4cqg" path="res://PixelifySans-Medium.ttf" id="1_0pst2"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_aaoh5"]
-[ext_resource type="AudioStream" uid="uid://brp6g8qsl8p4k" path="res://Sounds/Chill_Corvis.wav" id="3_qiten"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="3_s8ny8"]
 [ext_resource type="Texture2D" uid="uid://oclrsutlatcx" path="res://Images/button_restart-export.png" id="4_7b0ht"]
 [ext_resource type="Texture2D" uid="uid://citlch2a18txk" path="res://Images/button_restart-hover.png" id="4_kxkd8"]
@@ -10,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cf3p6hsbjda5b" path="res://Images/button_continue-export.png" id="7_a6wtx"]
 [ext_resource type="Texture2D" uid="uid://b3205auiay711" path="res://Images/button_menu-export.png" id="8_gd2id"]
 [ext_resource type="Texture2D" uid="uid://dwl5gr5u5plbn" path="res://Images/button_menu-hoverpng.png" id="8_lrhxk"]
+[ext_resource type="AudioStream" uid="uid://0svll0npufss" path="res://Sounds/BGM/Beak Bandit Menu BGM.wav" id="10_draou"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7xm4"]
 atlas = ExtResource("3_s8ny8")
@@ -403,7 +403,7 @@ sprite_frames = SubResource("SpriteFrames_2jr3d")
 autoplay = "default"
 
 [node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_qiten")
+stream = ExtResource("10_draou")
 volume_db = -25.0
 
 [connection signal="pressed" from="pause/ui/Panel/VBoxContainer2/restart" to="." method="_on_restart_pressed"]
