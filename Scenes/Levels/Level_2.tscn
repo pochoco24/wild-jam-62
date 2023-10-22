@@ -235,7 +235,7 @@ size = Vector2(16002, 149)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgx2t"]
 size = Vector2(141, 1061)
 
-[node name="Level2" type="Node2D"]
+[node name="Level3" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true

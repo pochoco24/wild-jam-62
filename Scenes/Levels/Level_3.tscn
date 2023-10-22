@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ckrfap76etwxt"]
+[gd_scene load_steps=54 format=3 uid="uid://d0htplup0n3rj"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_llqlg"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="2_b6f28"]
@@ -235,7 +235,7 @@ size = Vector2(16002, 149)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgx2t"]
 size = Vector2(141, 1061)
 
-[node name="Level1" type="Node2D"]
+[node name="Level3" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
@@ -294,7 +294,7 @@ texture = ExtResource("7_17ybm")
 script = ExtResource("8_8aoc5")
 
 [node name="game_timer" type="Timer" parent="PlayerCamera/BackgroundFollow/moon"]
-wait_time = 240.0
+wait_time = 180.0
 one_shot = true
 
 [node name="tick" type="AudioStreamPlayer2D" parent="PlayerCamera/BackgroundFollow/moon"]
@@ -383,47 +383,43 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 
 [node name="Crop" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(331, 573)
-crop_textures = null
-
-[node name="Crop2" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-554, 572)
-crop_textures = null
-
-[node name="Crop11" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(1663, 574)
-crop_textures = null
-
-[node name="Crop14" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(6501, 573)
-crop_textures = null
-
-[node name="Crop16" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(7768, 572)
-crop_textures = null
-
-[node name="Crop15" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(7914, 572)
-crop_textures = null
-
-[node name="Crop13" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(5345, 573)
-crop_textures = null
-
-[node name="Crop12" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(3320, 573)
+position = Vector2(275, 573)
 crop_textures = null
 
 [node name="Crop17" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(3848, 573)
+position = Vector2(3282, 567)
 crop_textures = null
 
-[node name="Crop18" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(4424, 573)
+[node name="Crop2" parent="Crops" instance=ExtResource("15_acdh2")]
+position = Vector2(1662, 572)
+crop_textures = null
+
+[node name="Crop11" parent="Crops" instance=ExtResource("15_acdh2")]
+position = Vector2(4063, 574)
+crop_textures = null
+
+[node name="Crop14" parent="Crops" instance=ExtResource("15_acdh2")]
+position = Vector2(6765, 573)
+crop_textures = null
+
+[node name="Crop16" parent="Crops" instance=ExtResource("15_acdh2")]
+position = Vector2(8420, 572)
+crop_textures = null
+
+[node name="Crop15" parent="Crops" instance=ExtResource("15_acdh2")]
+position = Vector2(7786, 572)
+crop_textures = null
+
+[node name="Crop13" parent="Crops" instance=ExtResource("15_acdh2")]
+position = Vector2(5625, 573)
+crop_textures = null
+
+[node name="Crop12" parent="Crops" instance=ExtResource("15_acdh2")]
+position = Vector2(4536, 573)
 crop_textures = null
 
 [node name="Crop3" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-1165, 572)
+position = Vector2(1363, 572)
 crop_textures = null
 
 [node name="Crop10" parent="Crops" instance=ExtResource("15_acdh2")]
@@ -431,27 +427,27 @@ position = Vector2(2511, 569)
 crop_textures = null
 
 [node name="Crop4" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-2308, 571)
+position = Vector2(-1532, 571)
 crop_textures = null
 
 [node name="Crop5" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-3704, 571)
+position = Vector2(-2832, 571)
 crop_textures = null
 
 [node name="Crop7" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-5087, 577)
+position = Vector2(-5149, 577)
 crop_textures = null
 
 [node name="Crop8" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-6047, 569)
+position = Vector2(-5855, 569)
 crop_textures = null
 
 [node name="Crop9" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-6265, 572)
+position = Vector2(-6561, 572)
 crop_textures = null
 
 [node name="Crop6" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-4280, 573)
+position = Vector2(-3848, 573)
 crop_textures = null
 
 [node name="Ground" type="StaticBody2D" parent="."]
@@ -658,55 +654,50 @@ position = Vector2(-509.998, -19.1941)
 scale = Vector2(0.288628, 0.288628)
 texture = ExtResource("20_57siu")
 
+[node name="ShootFarmer" parent="." instance=ExtResource("23_h2srx")]
+position = Vector2(-2001, 554)
+
+[node name="ShootFarmer2" parent="." instance=ExtResource("23_h2srx")]
+position = Vector2(3633, 554)
+
 [node name="scarecrows" type="Node2D" parent="."]
-position = Vector2(0, -992)
 
 [node name="CharacterBody2D" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(-626, 1528)
-scale = Vector2(1.51, 1.51)
-
-[node name="CharacterBody2D9" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(1572, 1524)
+position = Vector2(192, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D2" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(2719, 1530)
+position = Vector2(1509, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D6" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(6224, 1530)
+position = Vector2(4425, 538)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D7" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(5554, 1529)
+position = Vector2(5855, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D8" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(7629, 1531)
+position = Vector2(8013, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D3" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(-3631, 1531)
+position = Vector2(-3769, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D4" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(-4509, 1530)
+position = Vector2(-5471, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D5" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(-6153, 1530)
+position = Vector2(-6077, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_26uqa")
 volume_db = -20.0
 autoplay = true
-
-[node name="ShootFarmer" parent="." instance=ExtResource("23_h2srx")]
-position = Vector2(-1720, 553)
-
-[node name="ShootFarmer2" parent="." instance=ExtResource("23_h2srx")]
-position = Vector2(4355, 553)
 
 [connection signal="body_entered" from="Player/Crop Pickup Area" to="Player" method="_on_crop_pickup_area_body_entered"]
 [connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]

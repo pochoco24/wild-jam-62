@@ -59,7 +59,7 @@ func set_crop_count(x : int):
 		await get_tree().create_timer(1.0).timeout
 		var current_level = get_tree().current_scene.scene_file_path
 		var level_number = current_level.to_int()
-		if level_number == 10:
+		if level_number == 5:
 			%ui.the_end()
 		else:
 			%ui.next_lvl()
