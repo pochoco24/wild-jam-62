@@ -263,7 +263,9 @@ one_shot = true
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(568, 298)
+position = Vector2(568, 398)
+scale = Vector2(0.670195, 0.670195)
+zoom = Vector2(1.5, 1.5)
 script = ExtResource("3_nl4iu")
 
 [node name="BackgroundFollow" type="Node2D" parent="PlayerCamera"]
@@ -305,7 +307,7 @@ texture = ExtResource("7_legiq")
 position = Vector2(640, 1283)
 
 [node name="moon_pos_ref" type="Node2D" parent="PlayerCamera/BackgroundFollow/moon_pivot"]
-position = Vector2(0, -1141.07)
+position = Vector2(0, -1194.56)
 
 [node name="GUI" type="Control" parent="PlayerCamera"]
 unique_name_in_owner = true
@@ -442,8 +444,8 @@ position = Vector2(549, 637)
 self_modulate = Color(0, 0.439216, 0.105882, 1)
 z_index = -2
 texture_repeat = 2
-position = Vector2(282, -313)
-scale = Vector2(5, 5)
+position = Vector2(282, -257)
+scale = Vector2(4, 4)
 texture = ExtResource("13_wn07b")
 region_enabled = true
 region_rect = Rect2(-0.18045, -0.0602183, 3458.79, 130.364)
@@ -487,6 +489,7 @@ flip_h = true
 unique_name_in_owner = true
 
 [node name="clouds" type="Node2D" parent="."]
+visible = false
 position = Vector2(1145, 236)
 scale = Vector2(8.49219, 8.49219)
 
