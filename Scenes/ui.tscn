@@ -347,7 +347,6 @@ texture_hover = ExtResource("8_lrhxk")
 stretch_mode = 0
 
 [node name="description" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ui" type="ColorRect" parent="description"]
 anchors_preset = 15
@@ -401,6 +400,22 @@ position = Vector2(409, 102)
 scale = Vector2(3.73589, 3.73589)
 sprite_frames = SubResource("SpriteFrames_2jr3d")
 autoplay = "default"
+
+[node name="Label" type="Label" parent="description"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.5
+offset_top = -28.0
+offset_right = 201.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_0pst2")
+theme_override_font_sizes/font_size = 20
+text = "To Pause the game press the ESCAPE KEY"
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_draou")
