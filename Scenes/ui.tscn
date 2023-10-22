@@ -1,9 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://c25o2jmd32yfq"]
+[gd_scene load_steps=16 format=3 uid="uid://c25o2jmd32yfq"]
 
 [ext_resource type="FontFile" uid="uid://bsl5qvppa4cqg" path="res://PixelifySans-Medium.ttf" id="1_0pst2"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_aaoh5"]
 [ext_resource type="AudioStream" uid="uid://brp6g8qsl8p4k" path="res://Sounds/Chill_Corvis.wav" id="3_qiten"]
 [ext_resource type="Texture2D" uid="uid://c28hkyc6jm3j1" path="res://Images/PlayerBird.png" id="3_s8ny8"]
+[ext_resource type="Texture2D" uid="uid://oclrsutlatcx" path="res://Images/button_restart-export.png" id="4_7b0ht"]
+[ext_resource type="Texture2D" uid="uid://citlch2a18txk" path="res://Images/button_restart-hover.png" id="4_kxkd8"]
+[ext_resource type="Texture2D" uid="uid://dob6yte0613fc" path="res://Images/button_continue-hoverpng.png" id="6_lppw1"]
+[ext_resource type="Texture2D" uid="uid://cf3p6hsbjda5b" path="res://Images/button_continue-export.png" id="7_a6wtx"]
+[ext_resource type="Texture2D" uid="uid://b3205auiay711" path="res://Images/button_menu-export.png" id="8_gd2id"]
+[ext_resource type="Texture2D" uid="uid://dwl5gr5u5plbn" path="res://Images/button_menu-hoverpng.png" id="8_lrhxk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7xm4"]
 atlas = ExtResource("3_s8ny8")
@@ -64,8 +70,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -175.5
+offset_top = 80.0
 offset_right = 175.5
-offset_bottom = 160.0
+offset_bottom = 240.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_0pst2")
 theme_override_font_sizes/font_size = 100
@@ -78,46 +85,50 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -214.5
-offset_top = -239.5
-offset_right = 214.5
-offset_bottom = 273.5
+offset_left = -252.0
+offset_top = -165.0
+offset_right = 252.0
+offset_bottom = 277.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="pause/ui/Panel"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="pause/ui/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 33.0
-offset_top = 29.0
-offset_right = -35.0
-offset_bottom = -68.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.5
+offset_top = -175.5
+offset_right = 221.5
+offset_bottom = 167.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
 
-[node name="restart" type="Button" parent="pause/ui/Panel/VBoxContainer"]
+[node name="restart" type="TextureButton" parent="pause/ui/Panel/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_0pst2")
-theme_override_font_sizes/font_size = 50
-text = "RESTART"
+texture_normal = ExtResource("4_7b0ht")
+texture_pressed = ExtResource("4_7b0ht")
+texture_hover = ExtResource("4_kxkd8")
+stretch_mode = 0
 
-[node name="continue" type="Button" parent="pause/ui/Panel/VBoxContainer"]
+[node name="continue" type="TextureButton" parent="pause/ui/Panel/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_0pst2")
-theme_override_font_sizes/font_size = 50
-text = "CONTINUE"
+texture_normal = ExtResource("7_a6wtx")
+texture_pressed = ExtResource("7_a6wtx")
+texture_hover = ExtResource("6_lppw1")
+stretch_mode = 0
 
-[node name="menu" type="Button" parent="pause/ui/Panel/VBoxContainer"]
+[node name="menu" type="TextureButton" parent="pause/ui/Panel/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_0pst2")
-theme_override_font_sizes/font_size = 50
-text = "MENU"
+texture_normal = ExtResource("8_gd2id")
+texture_pressed = ExtResource("8_gd2id")
+texture_hover = ExtResource("8_lrhxk")
+stretch_mode = 0
 
 [node name="failed" type="CanvasLayer" parent="."]
 layer = 2
@@ -137,9 +148,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -165.0
-offset_top = 104.0
+offset_top = 152.0
 offset_right = 165.0
-offset_bottom = 264.0
+offset_bottom = 312.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_0pst2")
 theme_override_font_sizes/font_size = 100
@@ -152,39 +163,42 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -214.0
-offset_top = -136.0
-offset_right = 215.0
-offset_bottom = 233.0
+offset_left = -214.5
+offset_top = -97.0
+offset_right = 214.5
+offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="failed/ui/Panel"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="failed/ui/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 34.5
-offset_top = 44.5
-offset_right = -33.5
-offset_bottom = -52.5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.5
+offset_top = -119.5
+offset_right = 221.5
+offset_bottom = 122.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 80
 
-[node name="restart2" type="Button" parent="failed/ui/Panel/VBoxContainer"]
+[node name="restart" type="TextureButton" parent="failed/ui/Panel/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_0pst2")
-theme_override_font_sizes/font_size = 50
-text = "RESTART"
+texture_normal = ExtResource("4_7b0ht")
+texture_pressed = ExtResource("4_7b0ht")
+texture_hover = ExtResource("4_kxkd8")
+stretch_mode = 0
 
-[node name="menu2" type="Button" parent="failed/ui/Panel/VBoxContainer"]
+[node name="menu" type="TextureButton" parent="failed/ui/Panel/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_0pst2")
-theme_override_font_sizes/font_size = 50
-text = "MENU"
+texture_normal = ExtResource("8_gd2id")
+texture_pressed = ExtResource("8_gd2id")
+texture_hover = ExtResource("8_lrhxk")
+stretch_mode = 0
 
 [node name="next_lvl" type="CanvasLayer" parent="."]
 
@@ -203,9 +217,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -177.0
-offset_top = 32.0
+offset_top = 96.0
 offset_right = 177.0
-offset_bottom = 192.0
+offset_bottom = 256.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_0pst2")
 theme_override_font_sizes/font_size = 100
@@ -219,45 +233,49 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -214.5
-offset_top = -215.5
+offset_top = -153.5
 offset_right = 214.5
-offset_bottom = 297.5
+offset_bottom = 265.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="next_lvl/ui/Panel"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="next_lvl/ui/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 33.0
-offset_top = 50.5
-offset_right = -35.0
-offset_bottom = -46.5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.5
+offset_top = -168.5
+offset_right = 221.5
+offset_bottom = 174.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
 
-[node name="next_lvl" type="Button" parent="next_lvl/ui/Panel/VBoxContainer"]
+[node name="next_lvl" type="TextureButton" parent="next_lvl/ui/Panel/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_0pst2")
-theme_override_font_sizes/font_size = 50
-text = "NEXT LEVEL"
+texture_normal = ExtResource("7_a6wtx")
+texture_pressed = ExtResource("7_a6wtx")
+texture_hover = ExtResource("6_lppw1")
+stretch_mode = 0
 
-[node name="restart" type="Button" parent="next_lvl/ui/Panel/VBoxContainer"]
+[node name="restart" type="TextureButton" parent="next_lvl/ui/Panel/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_0pst2")
-theme_override_font_sizes/font_size = 50
-text = "RESTART"
+texture_normal = ExtResource("4_7b0ht")
+texture_pressed = ExtResource("4_7b0ht")
+texture_hover = ExtResource("4_kxkd8")
+stretch_mode = 0
 
-[node name="menu" type="Button" parent="next_lvl/ui/Panel/VBoxContainer"]
+[node name="menu" type="TextureButton" parent="next_lvl/ui/Panel/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_0pst2")
-theme_override_font_sizes/font_size = 50
-text = "MENU"
+texture_normal = ExtResource("8_gd2id")
+texture_pressed = ExtResource("8_gd2id")
+texture_hover = ExtResource("8_lrhxk")
+stretch_mode = 0
 
 [node name="timeover" type="CanvasLayer" parent="."]
 
@@ -275,10 +293,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -165.0
-offset_top = 104.0
-offset_right = 165.0
-offset_bottom = 264.0
+offset_left = -246.0
+offset_top = 128.0
+offset_right = 246.0
+offset_bottom = 288.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_0pst2")
 theme_override_font_sizes/font_size = 100
@@ -291,39 +309,42 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -214.0
-offset_top = -136.0
-offset_right = 215.0
-offset_bottom = 233.0
+offset_left = -214.5
+offset_top = -114.5
+offset_right = 214.5
+offset_bottom = 178.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="timeover/ui/Panel"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="timeover/ui/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 34.5
-offset_top = 44.5
-offset_right = -33.5
-offset_bottom = -52.5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -120.0
+offset_right = 221.0
+offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 80
 
-[node name="restart2" type="Button" parent="timeover/ui/Panel/VBoxContainer"]
+[node name="restart" type="TextureButton" parent="timeover/ui/Panel/VBoxContainer4"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_0pst2")
-theme_override_font_sizes/font_size = 50
-text = "RESTART"
+texture_normal = ExtResource("4_7b0ht")
+texture_pressed = ExtResource("4_7b0ht")
+texture_hover = ExtResource("4_kxkd8")
+stretch_mode = 0
 
-[node name="menu2" type="Button" parent="timeover/ui/Panel/VBoxContainer"]
+[node name="menu" type="TextureButton" parent="timeover/ui/Panel/VBoxContainer4"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_0pst2")
-theme_override_font_sizes/font_size = 50
-text = "MENU"
+texture_normal = ExtResource("8_gd2id")
+texture_pressed = ExtResource("8_gd2id")
+texture_hover = ExtResource("8_lrhxk")
+stretch_mode = 0
 
 [node name="description" type="CanvasLayer" parent="."]
 visible = false
@@ -385,13 +406,13 @@ autoplay = "default"
 stream = ExtResource("3_qiten")
 volume_db = -25.0
 
-[connection signal="pressed" from="pause/ui/Panel/VBoxContainer/restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="pause/ui/Panel/VBoxContainer/continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="pause/ui/Panel/VBoxContainer/menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="failed/ui/Panel/VBoxContainer/restart2" to="." method="_on_restart_2_pressed"]
-[connection signal="pressed" from="failed/ui/Panel/VBoxContainer/menu2" to="." method="_on_menu_2_pressed"]
-[connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer/next_lvl" to="." method="_on_next_lvl_pressed"]
-[connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer/restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer/menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="timeover/ui/Panel/VBoxContainer/restart2" to="." method="_on_restart_2_pressed"]
-[connection signal="pressed" from="timeover/ui/Panel/VBoxContainer/menu2" to="." method="_on_menu_2_pressed"]
+[connection signal="pressed" from="pause/ui/Panel/VBoxContainer2/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="pause/ui/Panel/VBoxContainer2/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="pause/ui/Panel/VBoxContainer2/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="failed/ui/Panel/VBoxContainer3/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="failed/ui/Panel/VBoxContainer3/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer3/next_lvl" to="." method="_on_next_lvl_pressed"]
+[connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer3/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="next_lvl/ui/Panel/VBoxContainer3/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="timeover/ui/Panel/VBoxContainer4/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="timeover/ui/Panel/VBoxContainer4/menu" to="." method="_on_menu_pressed"]
