@@ -294,7 +294,7 @@ texture = ExtResource("7_17ybm")
 script = ExtResource("8_8aoc5")
 
 [node name="game_timer" type="Timer" parent="PlayerCamera/BackgroundFollow/moon"]
-wait_time = 180.0
+wait_time = 240.0
 one_shot = true
 
 [node name="tick" type="AudioStreamPlayer2D" parent="PlayerCamera/BackgroundFollow/moon"]
@@ -399,15 +399,19 @@ position = Vector2(4063, 574)
 crop_textures = null
 
 [node name="Crop14" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(6765, 573)
+position = Vector2(6213, 573)
+crop_textures = null
+
+[node name="Crop18" parent="Crops" instance=ExtResource("15_acdh2")]
+position = Vector2(6813, 573)
 crop_textures = null
 
 [node name="Crop16" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(8420, 572)
+position = Vector2(7516, 572)
 crop_textures = null
 
 [node name="Crop15" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(7786, 572)
+position = Vector2(8010, 572)
 crop_textures = null
 
 [node name="Crop13" parent="Crops" instance=ExtResource("15_acdh2")]
@@ -431,19 +435,19 @@ position = Vector2(-1532, 571)
 crop_textures = null
 
 [node name="Crop5" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-2832, 571)
+position = Vector2(-2504, 571)
 crop_textures = null
 
 [node name="Crop7" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-5149, 577)
+position = Vector2(-5398, 574)
 crop_textures = null
 
 [node name="Crop8" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-5855, 569)
+position = Vector2(-6243, 570)
 crop_textures = null
 
 [node name="Crop9" parent="Crops" instance=ExtResource("15_acdh2")]
-position = Vector2(-6561, 572)
+position = Vector2(-6433, 572)
 crop_textures = null
 
 [node name="Crop6" parent="Crops" instance=ExtResource("15_acdh2")]
@@ -663,7 +667,7 @@ position = Vector2(3633, 554)
 [node name="scarecrows" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(192, 539)
+position = Vector2(-1411, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D2" parent="scarecrows" instance=ExtResource("21_nyohd")]
@@ -678,8 +682,16 @@ scale = Vector2(1.51, 1.51)
 position = Vector2(5855, 539)
 scale = Vector2(1.51, 1.51)
 
+[node name="CharacterBody2D10" parent="scarecrows" instance=ExtResource("21_nyohd")]
+position = Vector2(6800, 540)
+scale = Vector2(1.51, 1.51)
+
 [node name="CharacterBody2D8" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(8013, 540)
+position = Vector2(7707, 540)
+scale = Vector2(1.51, 1.51)
+
+[node name="CharacterBody2D9" parent="scarecrows" instance=ExtResource("21_nyohd")]
+position = Vector2(26, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D3" parent="scarecrows" instance=ExtResource("21_nyohd")]
@@ -691,7 +703,7 @@ position = Vector2(-5471, 539)
 scale = Vector2(1.51, 1.51)
 
 [node name="CharacterBody2D5" parent="scarecrows" instance=ExtResource("21_nyohd")]
-position = Vector2(-6077, 540)
+position = Vector2(-6338, 540)
 scale = Vector2(1.51, 1.51)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
